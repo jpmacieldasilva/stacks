@@ -17,6 +17,7 @@ import { Minimap } from "./Minimap";
 import { UploadProgress } from "./UploadProgress";
 import { ActionBar } from "./ActionBar";
 import { ChatPanel } from "./ChatPanel";
+import { useToast } from "@/components/ui/Toast";
 
 
 export function Board() {
@@ -35,6 +36,9 @@ export function Board() {
     updateCardColor,
     getFilteredAndHighlightedCards
   } = useBoardContext();
+
+  // Sistema de notificações toast
+  const { showSuccess, showError, showInfo } = useToast();
 
   // Usar o contexto do Canvas para gerenciar viewport
   const { updateCanvasState } = useCanvas();
@@ -93,6 +97,8 @@ export function Board() {
     };
   }, [boardState.cards, viewport.scale]);
 
+
+
   // Funções para seleção múltipla
   const handleCardSelect = useCallback((cardId: string, isCtrlPressed: boolean) => {
     console.log('🔄 handleCardSelect chamado');
@@ -125,23 +131,28 @@ export function Board() {
 
   const handleBulkDelete = useCallback(() => {
     console.log('Deletando cards:', Array.from(selectedCards));
+    const count = selectedCards.size;
     selectedCards.forEach(cardId => {
       console.log('Deletando card:', cardId);
       removeCard(cardId);
     });
     setSelectedCards(new Set());
-  }, [selectedCards, removeCard]);
+    showSuccess(`${count} card(s) removido(s)`, "Cards deletados com sucesso");
+  }, [selectedCards, removeCard, showSuccess]);
 
   const handleBulkColorChange = useCallback((color: CardData['color']) => {
     console.log('Mudando cor para:', color, 'em cards:', Array.from(selectedCards));
+    const count = selectedCards.size;
     selectedCards.forEach(cardId => {
       console.log('Mudando cor do card:', cardId, 'para:', color);
       updateCardColor(cardId, color);
     });
-  }, [selectedCards, updateCardColor]);
+    showInfo(`Cor alterada para ${count} card(s)`, `Cor aplicada: ${color}`);
+  }, [selectedCards, updateCardColor, showInfo]);
 
   const handleBulkDuplicate = useCallback(() => {
     console.log('Duplicando cards:', Array.from(selectedCards));
+    const count = selectedCards.size;
     selectedCards.forEach(cardId => {
       const card = boardState.cards.find(c => c.id === cardId);
       if (card) {
@@ -149,7 +160,57 @@ export function Board() {
         duplicateCard(card);
       }
     });
-  }, [selectedCards, boardState.cards, duplicateCard]);
+    showSuccess(`${count} card(s) duplicado(s)`, "Cards duplicados com sucesso");
+  }, [selectedCards, boardState.cards, duplicateCard, showSuccess]);
+
+  // Função para navegação por teclado
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    // WASD para pan
+    const panSpeed = 50;
+    
+    switch (e.key.toLowerCase()) {
+      case 'w':
+        e.preventDefault();
+        setViewport(prev => ({ ...prev, y: prev.y + panSpeed }));
+        showInfo("Navegação", "Movendo para cima (W)");
+        break;
+      case 's':
+        e.preventDefault();
+        setViewport(prev => ({ ...prev, y: prev.y - panSpeed }));
+        showInfo("Navegação", "Movendo para baixo (S)");
+        break;
+      case 'a':
+        e.preventDefault();
+        setViewport(prev => ({ ...prev, x: prev.x + panSpeed }));
+        showInfo("Navegação", "Movendo para esquerda (A)");
+        break;
+      case 'd':
+        e.preventDefault();
+        setViewport(prev => ({ ...prev, x: prev.x - panSpeed }));
+        showInfo("Navegação", "Movendo para direita (D)");
+        break;
+      case 'escape':
+        e.preventDefault();
+        clearSelection();
+        showInfo("Seleção limpa", "Pressione Escape para limpar seleção");
+        break;
+      case 'delete':
+        e.preventDefault();
+        if (selectedCards.size > 0) {
+          handleBulkDelete();
+        }
+        break;
+    }
+  }, [clearSelection, selectedCards.size, handleBulkDelete, showInfo]);
+
+  // Event listener para navegação por teclado
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleKeyDown]);
 
   const handleContentChange = (cardId: string, content: string) => {
     updateCardContent(cardId, content);
@@ -237,7 +298,9 @@ export function Board() {
       };
       await addFileCard(file, offsetPosition);
     });
-  }, [viewport, addFileCard]);
+    
+    showSuccess(`${files.length} arquivo(s) adicionado(s)`, "Arquivos processados com sucesso");
+  }, [viewport, addFileCard, showSuccess]);
 
   // Funções específicas para cada tipo de card
   const handleViewFullscreen = useCallback(() => {
@@ -388,13 +451,21 @@ export function Board() {
   };
 
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
-    if (e.button === 1 || e.button === 2) return; // Middle or right click
-    if (e.target === boardRef.current) {
+    // Middle click (button 1) para pan
+    if (e.button === 1) {
+      e.preventDefault();
       setIsPanning(true);
       setPanStart({ x: e.clientX - viewport.x, y: e.clientY - viewport.y });
-      
-
-      
+      return;
+    }
+    
+    // Right click (button 2) - não fazer nada
+    if (e.button === 2) return;
+    
+    // Left click (button 0) para seleção
+    if (e.button === 0 && e.target === boardRef.current) {
+      setIsPanning(true);
+      setPanStart({ x: e.clientX - viewport.x, y: e.clientY - viewport.y });
       e.preventDefault();
     }
   }, [viewport.x, viewport.y]);
@@ -419,40 +490,43 @@ export function Board() {
     if (!boardElement) return;
 
     const wheelHandler = (e: WheelEvent) => {
-      // Prevenir zoom do navegador
+      // Ctrl+scroll para zoom
       if (e.ctrlKey || e.metaKey) {
         e.preventDefault();
         e.stopPropagation();
+        
+        const delta = e.deltaY > 0 ? 0.9 : 1.1;
+        const newScale = Math.max(0.05, Math.min(3, viewport.scale * delta)); // Consistente com controles
+        
+        // Zoom no ponto do mouse
+        const rect = boardElement.getBoundingClientRect();
+        if (rect) {
+          const mouseX = e.clientX - rect.left;
+          const mouseY = e.clientY - rect.top;
+          
+          requestAnimationFrame(() => {
+            setViewport(prev => ({
+              x: mouseX - (mouseX - prev.x) * (newScale / prev.scale),
+              y: mouseY - (mouseY - prev.y) * (newScale / prev.scale),
+              scale: newScale
+            }));
+          });
+        }
         return;
       }
       
-      // Prevenir eventos de zoom do trackpad (deltaY muito pequeno)
-      if (Math.abs(e.deltaY) < 10) {
-        e.preventDefault();
-        e.stopPropagation();
-        return;
-      }
-      
+      // Scroll normal para pan vertical
       e.preventDefault();
       e.stopPropagation();
       
-      const delta = e.deltaY > 0 ? 0.9 : 1.1;
-      const newScale = Math.max(0.1, Math.min(2, viewport.scale * delta));
+      // Pan vertical com scroll
+      const panSpeed = 50;
+      const deltaY = e.deltaY;
       
-      // Zoom no ponto do mouse usando requestAnimationFrame para suavizar
-      const rect = boardElement.getBoundingClientRect();
-      if (rect) {
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
-        
-        requestAnimationFrame(() => {
-          setViewport(prev => ({
-            x: mouseX - (mouseX - prev.x) * (newScale / prev.scale),
-            y: mouseY - (mouseY - prev.y) * (newScale / prev.scale),
-            scale: newScale
-          }));
-        });
-      }
+      setViewport(prev => ({
+        ...prev,
+        y: prev.y - deltaY * panSpeed * 0.01
+      }));
     };
 
     // Usar passive: false para permitir preventDefault
@@ -465,7 +539,7 @@ export function Board() {
 
   // Funções para controles de zoom
   const handleZoomIn = useCallback(() => {
-    const newScale = Math.min(2, viewport.scale * 1.2);
+    const newScale = Math.min(3, viewport.scale * 1.2); // Aumentado para 3x
     const rect = boardRef.current?.getBoundingClientRect();
     if (rect) {
       const centerX = rect.width / 2;
@@ -480,7 +554,7 @@ export function Board() {
   }, [viewport]);
 
   const handleZoomOut = useCallback(() => {
-    const newScale = Math.max(0.1, viewport.scale * 0.8);
+    const newScale = Math.max(0.05, viewport.scale * 0.8); // Reduzido para 0.05x
     const rect = boardRef.current?.getBoundingClientRect();
     if (rect) {
       const centerX = rect.width / 2;

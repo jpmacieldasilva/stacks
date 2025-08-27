@@ -19,7 +19,7 @@ export function Minimap({
   className 
 }: MinimapProps) {
   const minimapRef = useRef<HTMLDivElement>(null);
-  const minimapSize = { width: 120, height: 100 };
+  const minimapSize = { width: 300, height: 200 }; // Otimizado para desktop
 
   // Calcular bounds do conteúdo de forma mais simples
   const contentBounds = useMemo(() => {
@@ -119,7 +119,7 @@ export function Minimap({
   }, [minimapToWorld, boardBounds, viewport.scale, onViewportChange, minimapSize.width, minimapSize.height]);
 
   return (
-    <div className={`fixed bottom-6 left-6 z-40 ${className}`}>
+    <div className={`fixed bottom-5 left-5 z-40 ${className}`}>
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
