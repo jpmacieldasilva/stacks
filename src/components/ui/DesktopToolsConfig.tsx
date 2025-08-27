@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Settings, Grid, Mouse, Keyboard, Eye, EyeOff } from "lucide-react";
+import { Icon, IconButton } from "./Icon";
 
 interface DesktopToolsConfigProps {
   isOpen: boolean;
@@ -39,7 +39,7 @@ export function DesktopToolsConfig({
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-blue-100 rounded-lg">
-              <Settings className="w-5 h-5 text-blue-600" />
+              <Icon name="settings" size={20} className="text-blue-600" />
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900">Configurações Desktop</h3>
@@ -58,7 +58,7 @@ export function DesktopToolsConfig({
         <div className="space-y-4">
           <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
             <div className="flex items-center gap-3">
-              <Grid className="w-5 h-5 text-gray-600" />
+              <Icon name="grid" size={20} className="text-gray-600" />
               <div>
                 <h4 className="font-medium text-gray-900">Snap-to-Grid</h4>
                 <p className="text-sm text-gray-600">Alinhar cards ao grid</p>
@@ -109,11 +109,11 @@ export function DesktopToolsConfig({
           {/* Focus Mode */}
           <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
             <div className="flex items-center gap-3">
-              {isFocusMode ? (
-                <EyeOff className="w-5 h-5 text-gray-600" />
-              ) : (
-                <Eye className="w-5 h-5 text-gray-600" />
-              )}
+              <Icon 
+                name={isFocusMode ? "eyeOff" : "eye"} 
+                size={20} 
+                className="text-gray-600" 
+              />
               <div>
                 <h4 className="font-medium text-gray-900">Modo Foco</h4>
                 <p className="text-sm text-gray-600">Ocultar painéis (F11)</p>

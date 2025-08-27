@@ -16,6 +16,7 @@ const shortcuts = {
     { key: "Ctrl + Scroll", description: "Zoom no ponto do mouse" },
     { key: "Scroll", description: "Pan vertical" },
     { key: "Middle-click", description: "Pan do canvas" },
+    { key: "Click + Drag", description: "Seleção por área" },
   ],
   "Seleção": [
     { key: "Click", description: "Selecionar card" },
@@ -35,6 +36,12 @@ const shortcuts = {
     { key: "-", description: "Zoom out" },
     { key: "0", description: "Reset zoom" },
     { key: "F11", description: "Modo foco" },
+  ],
+  "Ferramentas": [
+    { key: "F1", description: "Ajuda e atalhos" },
+    { key: "F2", description: "Configurações desktop" },
+    { key: "G", description: "Toggle snap-to-grid" },
+    { key: "F11", description: "Toggle modo foco" },
   ],
 };
 
@@ -101,6 +108,7 @@ export function ShortcutsOverlay({ isOpen, onClose }: ShortcutsOverlayProps) {
                     {category === "Seleção" && <Zap className="w-5 h-5 text-green-600" />}
                     {category === "Ações" && <Keyboard className="w-5 h-5 text-purple-600" />}
                     {category === "Zoom" && <Zap className="w-5 h-5 text-orange-600" />}
+                    {category === "Ferramentas" && <Keyboard className="w-5 h-5 text-indigo-600" />}
                     <h3 className="text-lg font-semibold text-gray-900">{category}</h3>
                   </div>
                   

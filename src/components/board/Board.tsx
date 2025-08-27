@@ -20,6 +20,8 @@ import { ChatPanel } from "./ChatPanel";
 import { useToast } from "@/components/ui/Toast";
 import { ShortcutsOverlay } from "@/components/ui/ShortcutsOverlay";
 import { DesktopToolsConfig } from "@/components/ui/DesktopToolsConfig";
+import { DesktopStatusBar } from "@/components/ui/DesktopStatusBar";
+import { GridOverlay } from "@/components/ui/GridOverlay";
 
 
 export function Board() {
@@ -918,6 +920,13 @@ export function Board() {
           }
         }}
       >
+        {/* Grid Visual Overlay */}
+        <GridOverlay
+          isVisible={isSnapToGrid}
+          gridSize={gridSize}
+          viewport={viewport}
+          boardSize={{ width: 5000, height: 3000 }} // Tamanho do canvas virtual
+        />
         {/* Renderizar todos os cards */}
         {allCards.map((card) => renderCard(card))}
       </div>
@@ -1009,6 +1018,16 @@ export function Board() {
         onGridSizeChange={setGridSize}
         isFocusMode={isFocusMode}
         onToggleFocusMode={() => setIsFocusMode(prev => !prev)}
+      />
+
+      {/* Barra de Status Desktop */}
+      <DesktopStatusBar
+        isSnapToGrid={isSnapToGrid}
+        gridSize={gridSize}
+        isFocusMode={isFocusMode}
+        selectedCardsCount={selectedCards.size}
+        viewportScale={viewport.scale}
+        totalCards={boardState.cards.length}
       />
 
       {/* Indicador de Modo Foco */}
