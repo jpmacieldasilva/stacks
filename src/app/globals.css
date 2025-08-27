@@ -59,6 +59,135 @@
   --letter-spacing-tight: -0.025em;
   --letter-spacing-normal: 0;
   --letter-spacing-wide: 0.025em;
+
+  /* ===== SISTEMA DE HIERARQUIA VISUAL PARA DESKTOP ===== */
+  /* Tamanhos mínimos para elementos interativos em telas grandes */
+  --min-touch-target: 44px;      /* Mínimo para elementos clicáveis */
+  --min-icon-size: 24px;         /* Mínimo para ícones */
+  --min-button-height: 40px;     /* Mínimo para botões */
+  --min-input-height: 48px;      /* Mínimo para inputs */
+  --min-card-width: 200px;       /* Mínimo para cards */
+  --min-card-height: 120px;      /* Mínimo para cards */
+  
+  /* Espaçamentos para telas grandes */
+  --section-spacing: var(--space-8);      /* 32px entre seções */
+  --element-spacing: var(--space-4);     /* 16px entre elementos */
+  --content-spacing: var(--space-6);     /* 24px para conteúdo */
+  
+  /* Bordas e raios para desktop */
+  --border-radius-sm: var(--space-1);    /* 4px */
+  --border-radius-md: var(--space-2);    /* 8px */
+  --border-radius-lg: var(--space-3);    /* 12px */
+  --border-radius-xl: var(--space-4);    /* 16px */
+  
+  /* Bordas para elementos */
+  --border-width-thin: 1px;
+  --border-width-normal: 2px;
+  --border-width-thick: 3px;
+
+  /* ===== PALETA DE CORES DESKTOP-OTIMIZADA ===== */
+  /* Cores primárias com melhor contraste para desktop */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+  
+  /* Cores neutras otimizadas para monitores */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  
+  /* Cores de estado para feedback visual */
+  --color-success-50: #f0fdf4;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-success-700: #15803d;
+  
+  --color-warning-50: #fffbeb;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  
+  --color-error-50: #fef2f2;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+  --color-error-700: #b91c1c;
+  
+  --color-info-50: #eff6ff;
+  --color-info-500: #3b82f6;
+  --color-info-600: #2563eb;
+  --color-info-700: #1d4ed8;
+  
+  /* Cores de fundo e superfície */
+  --color-background: #ffffff;
+  --color-surface: #f9fafb;
+  --color-surface-elevated: #ffffff;
+  --color-border: var(--color-gray-200);
+  --color-border-focus: var(--color-primary-500);
+  
+  /* Cores de texto otimizadas para legibilidade */
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-600);
+  --color-text-tertiary: var(--color-gray-500);
+  --color-text-inverse: #ffffff;
+
+  /* ===== SISTEMA DE SOMBRAS E ELEVAÇÃO ===== */
+  /* Sombras baseadas em profundidade para desktop */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* Sombras coloridas para elementos interativos */
+  --shadow-primary: 0 4px 14px 0 rgba(59, 130, 246, 0.25);
+  --shadow-success: 0 4px 14px 0 rgba(34, 197, 94, 0.25);
+  --shadow-warning: 0 4px 14px 0 rgba(245, 158, 11, 0.25);
+  --shadow-error: 0 4px 14px 0 rgba(239, 68, 68, 0.25);
+  
+  /* Níveis de elevação */
+  --elevation-0: 0;
+  --elevation-1: 1;
+  --elevation-2: 2;
+  --elevation-3: 3;
+  --elevation-4: 4;
+  --elevation-5: 5;
+
+  /* ===== SISTEMA DE ANIMAÇÕES E MICRO-INTERAÇÕES ===== */
+  /* Durações de transição */
+  --transition-fast: 150ms;
+  --transition-normal: 250ms;
+  --transition-slow: 350ms;
+  --transition-slower: 500ms;
+  
+  /* Curvas de easing */
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Animações de entrada/saída */
+  --fade-in: fadeIn var(--transition-normal) var(--ease-out);
+  --fade-out: fadeOut var(--transition-normal) var(--ease-in);
+  --slide-up: slideUp var(--transition-normal) var(--ease-out);
+  --slide-down: slideDown var(--transition-normal) var(--ease-out);
+  --scale-in: scaleIn var(--transition-normal) var(--ease-bounce);
+  --scale-out: scaleOut var(--transition-normal) var(--ease-in);
 }
 
 /* Estilos base para o workspace */
@@ -629,25 +758,26 @@ body {
 
 .action-button {
   padding: var(--space-2) var(--space-4); /* 8px 16px */
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: var(--space-2); /* 8px */
-  color: #64748b;
-  font-size: 14px;
-  font-weight: 500;
+  background: var(--color-surface-elevated);
+  border: var(--border-width-thin) solid var(--color-border);
+  border-radius: var(--border-radius-md); /* 8px */
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm); /* 14px */
+  font-weight: var(--font-weight-medium); /* 500 */
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-normal) var(--ease-out);
+  box-shadow: var(--shadow-sm);
   display: flex;
   align-items: center;
   gap: var(--space-2); /* 8px */
+  min-height: var(--min-button-height); /* 40px */
 }
 
 .action-button:hover {
-  background: #f8fafc;
-  color: #334155;
+  background: var(--color-surface);
+  color: var(--color-text-primary);
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-md);
 }
 
 .action-button:active {
@@ -655,13 +785,13 @@ body {
 }
 
 .action-button.primary {
-  background: #3b82f6;
-  color: white;
-  border-color: #2563eb;
+  background: var(--color-primary-600);
+  color: var(--color-text-inverse);
+  border-color: var(--color-primary-700);
 }
 
 .action-button.primary:hover {
-  background: #2563eb;
+  background: var(--color-primary-700);
 }
 
 /* Estilos para o header */
@@ -671,20 +801,21 @@ body {
   left: 0;
   right: 0;
   height: var(--space-16); /* 64px para desktop */
-  background: white;
-  border-bottom: 1px solid #e2e8f0;
+  background: var(--color-surface-elevated);
+  border-bottom: var(--border-width-thin) solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--space-5); /* 20px */
   z-index: 100;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 .header-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #1e293b;
+  font-size: var(--font-size-xl); /* 20px */
+  font-weight: var(--font-weight-semibold); /* 600 */
+  color: var(--color-text-primary);
+  line-height: var(--line-height-tight); /* 1.25 */
 }
 
 .header-actions {
@@ -706,21 +837,23 @@ body {
 .toolbar-button {
   width: var(--space-12); /* 48px */
   height: var(--space-12); /* 48px */
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: var(--space-2); /* 8px */
+  background: var(--color-surface-elevated);
+  border: var(--border-width-thin) solid var(--color-border);
+  border-radius: var(--border-radius-md); /* 8px */
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
+  min-width: var(--min-touch-target); /* 44px */
+  min-height: var(--min-touch-target); /* 44px */
 }
 
 .toolbar-button:hover {
-  background: #f8fafc;
+  background: var(--color-surface);
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-md);
 }
 
 .toolbar-button:active {
@@ -814,19 +947,55 @@ body {
   100% { transform: rotate(360deg); }
 }
 
+/* ===== ANIMAÇÕES CSS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes scaleOut {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0.9); opacity: 0; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
 /* Estilos para notificações */
 .notification {
   position: fixed;
   top: var(--space-5); /* 20px */
   right: var(--space-5); /* 20px */
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: var(--space-2); /* 8px */
+  background: var(--color-surface-elevated);
+  border: var(--border-width-thin) solid var(--color-border);
+  border-radius: var(--border-radius-md); /* 8px */
   padding: var(--space-4); /* 16px */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
   z-index: 1000;
   max-width: 400px;
-  animation: slideIn 0.3s ease-out;
+  animation: var(--slide-in);
 }
 
 .notification.success {
