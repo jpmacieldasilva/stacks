@@ -18,6 +18,7 @@ import { UploadProgress } from "./UploadProgress";
 import { ActionBar } from "./ActionBar";
 import { ChatPanel } from "./ChatPanel";
 import { useToast } from "@/components/ui/Toast";
+import { ShortcutsOverlay } from "@/components/ui/ShortcutsOverlay";
 
 
 export function Board() {
@@ -56,6 +57,12 @@ export function Board() {
 
   // Chat state
   const [isChatOpen, setIsChatOpen] = useState(false);
+  
+  // Shortcuts overlay state
+  const [isShortcutsOpen, setIsShortcutsOpen] = useState(false);
+  
+  // Focus mode state
+  const [isFocusMode, setIsFocusMode] = useState(false);
 
   const boardRef = useRef<HTMLDivElement>(null);
 
@@ -165,6 +172,61 @@ export function Board() {
 
   // Função para navegação por teclado
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    // Atalhos com Ctrl
+    if (e.ctrlKey || e.metaKey) {
+      switch (e.key.toLowerCase()) {
+        case 'n':
+          e.preventDefault();
+          // TODO: Implementar novo card
+          showInfo("Novo Card", "Funcionalidade em desenvolvimento");
+          break;
+        case 'd':
+          e.preventDefault();
+          if (selectedCards.size > 0) {
+            handleBulkDuplicate();
+          }
+          break;
+        case 'z':
+          e.preventDefault();
+          // TODO: Implementar undo
+          showInfo("Desfazer", "Funcionalidade em desenvolvimento");
+          break;
+        case 'y':
+          e.preventDefault();
+          // TODO: Implementar redo
+          showInfo("Refazer", "Funcionalidade em desenvolvimento");
+          break;
+        case 'f':
+          e.preventDefault();
+          // TODO: Implementar busca
+          showInfo("Buscar", "Funcionalidade em desenvolvimento");
+          break;
+        case 'g':
+          e.preventDefault();
+          // TODO: Implementar ir para card
+          showInfo("Ir para Card", "Funcionalidade em desenvolvimento");
+          break;
+      }
+      return;
+    }
+
+    // Atalhos especiais
+    switch (e.key) {
+      case 'F1':
+        e.preventDefault();
+        setIsShortcutsOpen(true);
+        showInfo("Atalhos", "Overlay de atalhos aberto");
+        break;
+      case 'F11':
+        e.preventDefault();
+        setIsFocusMode(prev => !prev);
+        showInfo(
+          isFocusMode ? "Modo Normal" : "Modo Foco", 
+          isFocusMode ? "Painéis restaurados" : "Painéis ocultos para foco total"
+        );
+        break;
+    }
+
     // WASD para pan
     const panSpeed = 50;
     
@@ -201,7 +263,7 @@ export function Board() {
         }
         break;
     }
-  }, [clearSelection, selectedCards.size, handleBulkDelete, showInfo]);
+  }, [clearSelection, selectedCards.size, handleBulkDelete, showInfo, handleBulkDuplicate]);
 
   // Event listener para navegação por teclado
   useEffect(() => {
@@ -682,7 +744,7 @@ export function Board() {
 
 
       {/* Barra de ferramentas flutuante */}
-      <Header />
+      {!isFocusMode && <Header />}
 
       {/* ActionBar - sempre visível para mostrar o botão do chat */}
       {(() => {
@@ -790,22 +852,26 @@ export function Board() {
       )}
 
       {/* Controles de Zoom */}
-      <ZoomControls
-        scale={viewport.scale}
-        onZoomIn={handleZoomIn}
-        onZoomOut={handleZoomOut}
-        onZoomReset={handleZoomReset}
-        minZoom={0.1}
-        maxZoom={2}
-      />
+      {!isFocusMode && (
+        <ZoomControls
+          scale={viewport.scale}
+          onZoomIn={handleZoomIn}
+          onZoomOut={handleZoomOut}
+          onZoomReset={handleZoomReset}
+          minZoom={0.05}
+          maxZoom={3}
+        />
+      )}
 
       {/* Minimap */}
-      <Minimap
-        cards={boardState.cards}
-        viewport={viewport}
-        boardBounds={{ width: 1920, height: 1080 }} // TODO: pegar do ref
-        onViewportChange={setViewport}
-      />
+      {!isFocusMode && (
+        <Minimap
+          cards={boardState.cards}
+          viewport={viewport}
+          boardBounds={{ width: 1920, height: 1080 }} // TODO: pegar do ref
+          onViewportChange={setViewport}
+        />
+      )}
 
       {/* Área de upload removida - agora o canvas inteiro aceita uploads */}
 
@@ -828,6 +894,26 @@ export function Board() {
           // TODO: Implementar criação de paper
         }}
       />
+
+      {/* Shortcuts Overlay */}
+      <ShortcutsOverlay
+        isOpen={isShortcutsOpen}
+        onClose={() => setIsShortcutsOpen(false)}
+      />
+
+      {/* Indicador de Modo Foco */}
+      {isFocusMode && (
+        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-40 bg-orange-500 text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
+          <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+          <span className="text-sm font-medium">Modo Foco Ativo</span>
+          <button
+            onClick={() => setIsFocusMode(false)}
+            className="ml-2 px-2 py-1 bg-white/20 hover:bg-white/30 rounded text-xs transition-colors"
+          >
+            Sair
+          </button>
+        </div>
+      )}
     </div>
   );
 }
