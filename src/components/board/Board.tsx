@@ -19,6 +19,7 @@ import { ActionBar } from "./ActionBar";
 import { ChatPanel } from "./ChatPanel";
 import { useToast } from "@/components/ui/Toast";
 import { ShortcutsOverlay } from "@/components/ui/ShortcutsOverlay";
+import { DesktopToolsConfig } from "@/components/ui/DesktopToolsConfig";
 
 
 export function Board() {
@@ -63,6 +64,18 @@ export function Board() {
   
   // Focus mode state
   const [isFocusMode, setIsFocusMode] = useState(false);
+  
+  // Mouse navigation state
+  const [isSnapToGrid, setIsSnapToGrid] = useState(false);
+  const [gridSize, setGridSize] = useState(20); // 20px grid
+  const [isSelectingArea, setIsSelectingArea] = useState(false);
+  const [selectionArea, setSelectionArea] = useState<{
+    start: Position;
+    end: Position;
+  } | null>(null);
+  
+  // Desktop tools config state
+  const [isConfigOpen, setIsConfigOpen] = useState(false);
 
   const boardRef = useRef<HTMLDivElement>(null);
 
@@ -225,6 +238,22 @@ export function Board() {
           isFocusMode ? "Painéis restaurados" : "Painéis ocultos para foco total"
         );
         break;
+      case 'G':
+        e.preventDefault();
+        setIsSnapToGrid(prev => !prev);
+        showInfo(
+          isSnapToGrid ? "Grid Desativado" : "Grid Ativado", 
+          isSnapToGrid ? "Snap-to-grid desativado" : `Snap-to-grid ativado (${gridSize}px)`
+        );
+        break;
+      case 'F2':
+        e.preventDefault();
+        setIsConfigOpen(prev => !prev);
+        showInfo(
+          isConfigOpen ? "Configurações fechadas" : "Configurações abertas", 
+          "Painel de configurações desktop"
+        );
+        break;
     }
 
     // WASD para pan
@@ -284,10 +313,19 @@ export function Board() {
 
   const handlePositionChange = (cardId: string, newPosition: Position) => {
     // Ajustar posição considerando o viewport
-    const adjustedPosition = {
+    let adjustedPosition = {
       x: (newPosition.x - viewport.x) / viewport.scale,
       y: (newPosition.y - viewport.y) / viewport.scale
     };
+    
+    // Aplicar snap-to-grid se ativado
+    if (isSnapToGrid) {
+      adjustedPosition = {
+        x: Math.round(adjustedPosition.x / gridSize) * gridSize,
+        y: Math.round(adjustedPosition.y / gridSize) * gridSize
+      };
+    }
+    
     updateCardPosition(cardId, adjustedPosition);
   };
 
@@ -524,13 +562,26 @@ export function Board() {
     // Right click (button 2) - não fazer nada
     if (e.button === 2) return;
     
-    // Left click (button 0) para seleção
-    if (e.button === 0 && e.target === boardRef.current) {
-      setIsPanning(true);
-      setPanStart({ x: e.clientX - viewport.x, y: e.clientY - viewport.y });
-      e.preventDefault();
+    // Left click (button 0) para seleção ou pan
+    if (e.button === 0) {
+      if (e.target === boardRef.current) {
+        // Iniciar seleção por área
+        const rect = boardRef.current.getBoundingClientRect();
+        const worldPosition = {
+          x: (e.clientX - rect.left - viewport.x) / viewport.scale,
+          y: (e.clientY - rect.top - viewport.y) / viewport.scale
+        };
+        
+        setIsSelectingArea(true);
+        setSelectionArea({
+          start: worldPosition,
+          end: worldPosition
+        });
+        setPanStart({ x: e.clientX - viewport.x, y: e.clientY - viewport.y });
+        e.preventDefault();
+      }
     }
-  }, [viewport.x, viewport.y]);
+  }, [viewport.x, viewport.y, viewport.scale]);
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     if (isPanning) {
@@ -540,11 +591,58 @@ export function Board() {
         y: e.clientY - panStart.y
       }));
     }
-  }, [isPanning, panStart]);
+    
+    // Atualizar área de seleção
+    if (isSelectingArea && selectionArea) {
+      const rect = boardRef.current?.getBoundingClientRect();
+      if (rect) {
+        const worldPosition = {
+          x: (e.clientX - rect.left - viewport.x) / viewport.scale,
+          y: (e.clientY - rect.top - viewport.y) / viewport.scale
+        };
+        
+        setSelectionArea(prev => prev ? {
+          ...prev,
+          end: worldPosition
+        } : null);
+      }
+    }
+  }, [isPanning, panStart, isSelectingArea, selectionArea, viewport.x, viewport.y, viewport.scale]);
 
   const handleMouseUp = useCallback(() => {
     setIsPanning(false);
-  }, []);
+    
+    // Finalizar seleção por área
+    if (isSelectingArea && selectionArea) {
+      const { start, end } = selectionArea;
+      
+      // Calcular área de seleção
+      const minX = Math.min(start.x, end.x);
+      const maxX = Math.max(start.x, end.x);
+      const minY = Math.min(start.y, end.y);
+      const maxY = Math.max(start.y, end.y);
+      
+      // Selecionar cards dentro da área
+      const selectedInArea = boardState.cards.filter(card => {
+        const cardWidth = card.width || 150;
+        const cardHeight = card.height || 100;
+        const cardCenterX = card.position.x + cardWidth / 2;
+        const cardCenterY = card.position.y + cardHeight / 2;
+        
+        return cardCenterX >= minX && cardCenterX <= maxX &&
+               cardCenterY >= minY && cardCenterY <= maxY;
+      });
+      
+      if (selectedInArea.length > 0) {
+        const newSelection = new Set(selectedInArea.map(card => card.id));
+        setSelectedCards(newSelection);
+        showInfo(`Seleção por área`, `${selectedInArea.length} card(s) selecionado(s)`);
+      }
+      
+      setIsSelectingArea(false);
+      setSelectionArea(null);
+    }
+  }, [isSelectingArea, selectionArea, boardState.cards, showInfo]);
 
   // Registrar o event listener de wheel manualmente para evitar problemas com passive listeners
   React.useEffect(() => {
@@ -899,6 +997,18 @@ export function Board() {
       <ShortcutsOverlay
         isOpen={isShortcutsOpen}
         onClose={() => setIsShortcutsOpen(false)}
+      />
+
+      {/* Desktop Tools Config */}
+      <DesktopToolsConfig
+        isOpen={isConfigOpen}
+        onClose={() => setIsConfigOpen(false)}
+        isSnapToGrid={isSnapToGrid}
+        onToggleSnapToGrid={() => setIsSnapToGrid(prev => !prev)}
+        gridSize={gridSize}
+        onGridSizeChange={setGridSize}
+        isFocusMode={isFocusMode}
+        onToggleFocusMode={() => setIsFocusMode(prev => !prev)}
       />
 
       {/* Indicador de Modo Foco */}

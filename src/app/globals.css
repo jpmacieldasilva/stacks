@@ -998,6 +998,81 @@ body {
   animation: var(--slide-in);
 }
 
+/* ===== SISTEMA DE FEEDBACK VISUAL ===== */
+/* Grid visual para snap-to-grid */
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.grid-line {
+  stroke: var(--color-gray-200);
+  stroke-width: 0.5;
+  opacity: 0.3;
+}
+
+.grid-line.highlight {
+  stroke: var(--color-primary-300);
+  stroke-width: 1;
+  opacity: 0.6;
+}
+
+/* Área de seleção visual */
+.selection-area {
+  position: absolute;
+  border: 2px dashed var(--color-primary-500);
+  background: var(--color-primary-50);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Indicadores de estado */
+.status-indicator {
+  position: fixed;
+  top: var(--space-5);
+  left: var(--space-5);
+  z-index: 50;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal) var(--ease-out);
+}
+
+.status-indicator.grid-active {
+  background: var(--color-primary-100);
+  color: var(--color-primary-800);
+  border: 1px solid var(--color-primary-300);
+}
+
+.status-indicator.focus-active {
+  background: var(--color-warning-100);
+  color: var(--color-warning-800);
+  border: 1px solid var(--color-warning-300);
+}
+
+/* Feedback visual para interações */
+.interaction-feedback {
+  position: absolute;
+  background: var(--color-primary-500);
+  color: white;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  pointer-events: none;
+  z-index: 100;
+  animation: var(--fade-out);
+  animation-fill-mode: forwards;
+}
+
 .notification.success {
   border-color: #10b981;
   background: #f0fdf4;
