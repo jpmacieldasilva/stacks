@@ -1,0 +1,37 @@
+# Task ID: 10
+# Title: Sistema de Upload e Visualização de Arquivos
+# Status: pending
+# Dependencies: 5, 7
+# Priority: medium
+# Description: Implementar upload e visualização de imagens, PDFs e links
+# Details:
+Sistema para anexar arquivos aos cards com preview e visualização
+
+# Test Strategy:
+Testar upload, preview e visualização de diferentes tipos de arquivo
+
+# Subtasks:
+## 1. Implementar sistema de upload [pending]
+### Dependencies: None
+### Description: Drag & drop de arquivos e botão de upload
+### Details:
+
+
+## 2. Criar preview de imagens [pending]
+### Dependencies: None
+### Description: Renderização de imagens como cards com bordas arredondadas
+### Details:
+
+
+## 3. Implementar visualização de PDFs [pending]
+### Dependencies: None
+### Description: Modal ou painel para leitura de PDFs
+### Details:
+
+
+## 4. Criar preview de links [pending]
+### Dependencies: None
+### Description: Cards com título, descrição e thumbnail de links
+### Details:
+
+

@@ -1,0 +1,31 @@
+# Task ID: 2
+# Title: Sistema de Design e Componentes Base
+# Status: pending
+# Dependencies: 1
+# Priority: high
+# Description: Criar sistema de design consistente com componentes reutilizáveis
+# Details:
+Implementar sistema de cores, tipografia, espaçamentos e componentes base seguindo as especificações do PRD
+
+# Test Strategy:
+Verificar consistência visual e responsividade dos componentes
+
+# Subtasks:
+## 1. Configurar sistema de cores e tipografia [pending]
+### Dependencies: None
+### Description: Definir paleta de cores em escala de cinza e sistema tipográfico
+### Details:
+
+
+## 2. Criar componentes de layout base [pending]
+### Dependencies: None
+### Description: Container, Grid, Flexbox e outros componentes de layout
+### Details:
+
+
+## 3. Implementar sistema de sombras e bordas [pending]
+### Dependencies: None
+### Description: Sombras suaves e bordas arredondadas (2xl) conforme especificado
+### Details:
+
+

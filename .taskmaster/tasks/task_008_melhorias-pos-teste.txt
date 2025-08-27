@@ -1,0 +1,11 @@
+# Task ID: 8
+# Title: Acessibilidade
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Melhorar acessibilidade com navegação por teclado e suporte a leitores de tela
+# Details:
+Implementar navegação completa por teclado (Tab, Enter, Arrow keys), aria-labels adequados, contraste mínimo WCAG, suporte a screen readers, e foco visível em todos os elementos interativos
+
+# Test Strategy:
+

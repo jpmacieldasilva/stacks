@@ -1,0 +1,31 @@
+# Task ID: 7
+# Title: Sistema de Cards - Papers
+# Status: pending
+# Dependencies: 5, 6
+# Priority: medium
+# Description: Implementar notas longas expansíveis (papers) com modo full view
+# Details:
+Cards maiores (300x400px mínimo) que expandem para tela cheia ao clicar
+
+# Test Strategy:
+Testar expansão, edição e responsividade dos papers
+
+# Subtasks:
+## 1. Criar componente Paper [pending]
+### Dependencies: None
+### Description: Card branco/cinza com título, corpo de texto e checklists
+### Details:
+
+
+## 2. Implementar modo full view [pending]
+### Dependencies: None
+### Description: Transição suave de card para tela cheia com cabeçalho fixo
+### Details:
+
+
+## 3. Adicionar funcionalidades de edição [pending]
+### Dependencies: None
+### Description: Editor de texto rico com formatação básica
+### Details:
+
+

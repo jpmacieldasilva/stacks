@@ -1,0 +1,11 @@
+# Task ID: 14
+# Title: Controles de Zoom e Minimap
+# Status: done
+# Dependencies: None
+# Priority: high
+# Description: Implementar controles de zoom estilo Miro e minimap para navegação
+# Details:
+Adicionar controles de zoom (+/-) no canto, implementar zoom suave similar ao Miro, e criar minimap no canto inferior direito mostrando visão geral do board com viewport indicator
+
+# Test Strategy:
+

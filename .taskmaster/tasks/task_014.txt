@@ -1,0 +1,31 @@
+# Task ID: 14
+# Title: Sistema de Chat com IA
+# Status: pending
+# Dependencies: 10, 13
+# Priority: low
+# Description: Implementar chat lateral com IA para análise de conteúdo
+# Details:
+Janela lateral deslizante com interface de chat para interagir com arquivos e notas
+
+# Test Strategy:
+Testar funcionalidade do chat e integração com conteúdo
+
+# Subtasks:
+## 1. Criar componente de chat [pending]
+### Dependencies: None
+### Description: Interface lateral com bolhas de chat minimalistas
+### Details:
+
+
+## 2. Implementar integração com IA [pending]
+### Dependencies: None
+### Description: API para análise de conteúdo e geração de respostas
+### Details:
+
+
+## 3. Adicionar funcionalidades de análise [pending]
+### Dependencies: None
+### Description: Resumo automático, tagueamento e relacionamento de notas
+### Details:
+
+

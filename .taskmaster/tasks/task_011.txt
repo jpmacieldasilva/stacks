@@ -1,0 +1,31 @@
+# Task ID: 11
+# Title: Sistema de Busca e Filtros
+# Status: pending
+# Dependencies: 9, 10
+# Priority: medium
+# Description: Implementar busca semântica e filtros visuais no board
+# Details:
+Sistema de busca que destaca resultados visualmente e filtros por tipo de conteúdo
+
+# Test Strategy:
+Testar busca, filtros e destaque visual dos resultados
+
+# Subtasks:
+## 1. Implementar busca por texto [pending]
+### Dependencies: None
+### Description: Busca em títulos e conteúdo dos cards
+### Details:
+
+
+## 2. Criar filtros por tipo [pending]
+### Dependencies: None
+### Description: Filtrar por stickies, papers, imagens, PDFs, links
+### Details:
+
+
+## 3. Implementar destaque visual [pending]
+### Dependencies: None
+### Description: Brilho em torno dos cards que correspondem à busca
+### Details:
+
+

@@ -1,0 +1,11 @@
+# Task ID: 11
+# Title: Layout de Stickers Estilo Miro
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Melhorar layout dos stickers para texto se adaptar sem scroll, similar ao Miro
+# Details:
+Implementar sistema de auto-resize do texto baseado no tamanho do sticker, quebra de linha automática, e ajuste dinâmico do font-size para caber no container sem necessidade de scroll
+
+# Test Strategy:
+

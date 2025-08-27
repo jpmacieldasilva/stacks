@@ -1,0 +1,11 @@
+# Task ID: 16
+# Title: Metadados Automáticos para Links
+# Status: pending
+# Dependencies: None
+# Priority: medium
+# Description: Buscar automaticamente nome e descrição do site ao adicionar links
+# Details:
+Implementar fetching de metadados (Open Graph) para extrair título, descrição e thumbnail dos links. Incluir fallback para sites sem metadados e loading state durante fetch
+
+# Test Strategy:
+

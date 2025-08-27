@@ -1,0 +1,31 @@
+# Task ID: 8
+# Title: Sistema de Stacks e Agrupamento
+# Status: pending
+# Dependencies: 6
+# Priority: medium
+# Description: Implementar sistema de agrupamento visual de cards em stacks
+# Details:
+Cards agrupados viram stacks com bordas mais espessas e expansão em leque
+
+# Test Strategy:
+Testar criação, expansão e visualização dos stacks
+
+# Subtasks:
+## 1. Criar lógica de agrupamento [pending]
+### Dependencies: None
+### Description: Detectar quando cards estão próximos para formar stack
+### Details:
+
+
+## 2. Implementar visualização de stack [pending]
+### Dependencies: None
+### Description: Bordas mais espessas e indicador visual de agrupamento
+### Details:
+
+
+## 3. Adicionar expansão em leque [pending]
+### Dependencies: None
+### Description: Clique expande stack revelando cards sobrepostos
+### Details:
+
+

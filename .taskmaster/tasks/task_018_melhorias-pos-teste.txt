@@ -1,0 +1,11 @@
+# Task ID: 18
+# Title: Visualização Tela Cheia para Imagens
+# Status: pending
+# Dependencies: None
+# Priority: medium
+# Description: Implementar modal tela cheia para visualização de imagens
+# Details:
+Ao clicar em imagem, abrir em tela cheia com fundo escuro, controles de zoom, rotação, e navegação por setas. Incluir informações da imagem (nome, tamanho, dimensões)
+
+# Test Strategy:
+

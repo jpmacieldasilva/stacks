@@ -1,0 +1,11 @@
+# Task ID: 5
+# Title: Personalização de Stickies e Stacks
+# Status: done
+# Dependencies: None
+# Priority: low
+# Description: Permitir personalização de cores, tamanhos de stickies e configurações de stacks
+# Details:
+Implementar painel de personalização para cores customizadas de stickies, diferentes tamanhos (XS, S, M, L, XL), e configurações de stacks (distância para agrupamento, visual de empilhamento)
+
+# Test Strategy:
+

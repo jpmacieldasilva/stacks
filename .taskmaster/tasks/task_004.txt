@@ -1,0 +1,31 @@
+# Task ID: 4
+# Title: Barra Superior e Controles
+# Status: pending
+# Dependencies: 2
+# Priority: medium
+# Description: Implementar barra superior fixa com botões de ação e busca
+# Details:
+Barra superior com botão + para adicionar itens, campo de busca e menu de visualização
+
+# Test Strategy:
+Verificar funcionalidade dos botões e responsividade da barra
+
+# Subtasks:
+## 1. Criar componente Header [pending]
+### Dependencies: None
+### Description: Barra superior fixa com fundo e sombra sutil
+### Details:
+
+
+## 2. Implementar botão de adicionar item [pending]
+### Dependencies: None
+### Description: Botão + com hover effects e dropdown de tipos de conteúdo
+### Details:
+
+
+## 3. Criar campo de busca [pending]
+### Dependencies: None
+### Description: Campo de busca com ícone e funcionalidade de filtro
+### Details:
+
+

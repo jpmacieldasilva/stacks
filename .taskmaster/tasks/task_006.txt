@@ -1,0 +1,31 @@
+# Task ID: 6
+# Title: Sistema de Drag & Drop
+# Status: pending
+# Dependencies: 3
+# Priority: high
+# Description: Implementar sistema completo de drag & drop para todos os cards
+# Details:
+Sistema que permite arrastar e soltar cards livremente no board com feedback visual
+
+# Test Strategy:
+Testar drag & drop em diferentes dispositivos e cenários
+
+# Subtasks:
+## 1. Configurar React DnD [pending]
+### Dependencies: None
+### Description: Implementar sistema base de drag & drop com React DnD
+### Details:
+
+
+## 2. Implementar feedback visual durante drag [pending]
+### Dependencies: None
+### Description: Card 'levanta' com sombra ao ser arrastado
+### Details:
+
+
+## 3. Criar sistema de posicionamento [pending]
+### Dependencies: None
+### Description: Salvar e restaurar posições dos cards no board
+### Details:
+
+

@@ -1,0 +1,11 @@
+# Task ID: 4
+# Title: Busca Avançada com Autocompletar
+# Status: pending
+# Dependencies: None
+# Priority: medium
+# Description: Melhorar buscador com resultados parciais e autocompletar
+# Details:
+Implementar busca que destaque resultados parciais, sugestões de autocompletar baseadas no conteúdo existente, e busca por sinônimos ou termos relacionados
+
+# Test Strategy:
+

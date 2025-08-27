@@ -1,0 +1,11 @@
+# Task ID: 7
+# Title: Tooltips e Ajuda Contextual
+# Status: pending
+# Dependencies: None
+# Priority: low
+# Description: Adicionar tooltips explicativas sobre filtros, stacks e ações avançadas
+# Details:
+Implementar sistema de tooltips inteligentes que aparecem ao hover em botões e recursos. Incluir tour guiado para novos usuários e help bubbles contextuais
+
+# Test Strategy:
+

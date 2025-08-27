@@ -1,0 +1,11 @@
+# Task ID: 6
+# Title: Atalhos de Teclado
+# Status: pending
+# Dependencies: None
+# Priority: medium
+# Description: Implementar atalhos de teclado para power users
+# Details:
+Adicionar atalhos como Ctrl+N (novo sticky), Ctrl+F (busca), Del (excluir selecionados), Ctrl+D (duplicar), Ctrl+G (agrupar em stack), Esc (cancelar ações). Incluir painel de ajuda com lista de atalhos
+
+# Test Strategy:
+

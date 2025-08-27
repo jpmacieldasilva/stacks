@@ -1,0 +1,11 @@
+# Task ID: 19
+# Title: Atalhos de Teclado Estilo Miro
+# Status: pending
+# Dependencies: None
+# Priority: medium
+# Description: Implementar atalhos inspirados no Miro que não conflitem com browser
+# Details:
+Atalhos sugeridos: S (sticky), T (text/paper), Espaço+drag (pan), 1-6 (cores), Delete (excluir selecionados), Ctrl+D (duplicar), G (agrupar), Ctrl+A (selecionar todos), Z (zoom fit), + e - (zoom)
+
+# Test Strategy:
+

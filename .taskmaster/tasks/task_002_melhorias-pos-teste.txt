@@ -1,0 +1,11 @@
+# Task ID: 2
+# Title: Loading para Upload de Arquivos
+# Status: done
+# Dependencies: None
+# Priority: high
+# Description: Exibir animação de loading ao fazer upload de imagens grandes
+# Details:
+Implementar indicador de progresso e loading spinner durante upload de arquivos, especialmente para imagens grandes, para melhorar a experiência do usuário
+
+# Test Strategy:
+

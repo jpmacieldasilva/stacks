@@ -1,0 +1,11 @@
+# Task ID: 13
+# Title: Melhorar Layout de Empilhamento de Stacks
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Refazer visual de stacks para mostrar sobreposição real e melhor distribuição
+# Details:
+Implementar empilhamento visual real (cards ligeiramente deslocados), posicionar contador mais próximo ao stack, melhorar distribuição circular na expansão, e centralizar botão de fechar adequadamente
+
+# Test Strategy:
+

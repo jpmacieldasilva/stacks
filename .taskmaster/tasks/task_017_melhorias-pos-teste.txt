@@ -1,0 +1,11 @@
+# Task ID: 17
+# Title: Modo Tela Cheia para Papers
+# Status: done
+# Dependencies: None
+# Priority: medium
+# Description: Implementar edição de papers em modo tela cheia
+# Details:
+Ao editar paper, expandir para tela cheia com editor rico, barra de ferramentas de formatação, e transição suave. Incluir botão de voltar e auto-save
+
+# Test Strategy:
+

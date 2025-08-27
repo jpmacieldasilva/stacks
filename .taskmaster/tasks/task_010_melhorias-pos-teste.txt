@@ -1,0 +1,11 @@
+# Task ID: 10
+# Title: Confirmações de Segurança
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Adicionar confirmação ao deletar stacks ou cards sensíveis
+# Details:
+Implementar modais de confirmação para ações destrutivas, undo/redo para ações recentes, e lixeira temporária para recuperação de items excluídos acidentalmente
+
+# Test Strategy:
+

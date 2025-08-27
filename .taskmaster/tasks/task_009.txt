@@ -1,0 +1,31 @@
+# Task ID: 9
+# Title: Sistema de Tags e Categorização
+# Status: pending
+# Dependencies: 5, 7
+# Priority: low
+# Description: Implementar sistema de tags coloridas para organização dos cards
+# Details:
+Chips coloridos no canto superior dos cards para categorização e busca
+
+# Test Strategy:
+Testar criação, edição e filtragem por tags
+
+# Subtasks:
+## 1. Criar componente Tag [pending]
+### Dependencies: None
+### Description: Chip colorido com texto e opções de edição
+### Details:
+
+
+## 2. Implementar sistema de cores para tags [pending]
+### Dependencies: None
+### Description: Paleta de cores consistente para diferentes categorias
+### Details:
+
+
+## 3. Adicionar funcionalidade de filtro [pending]
+### Dependencies: None
+### Description: Filtrar cards por tags selecionadas
+### Details:
+
+

@@ -1,0 +1,37 @@
+# Task ID: 1
+# Title: Configuração Inicial do Projeto
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Configurar a estrutura base do projeto Next.js com TypeScript e dependências essenciais
+# Details:
+Inicializar projeto Next.js, configurar TypeScript, Tailwind CSS, shadcn/ui e outras dependências base
+
+# Test Strategy:
+Verificar se o projeto compila e roda sem erros
+
+# Subtasks:
+## 1. Inicializar projeto Next.js com TypeScript [pending]
+### Dependencies: None
+### Description: Criar projeto Next.js com configuração TypeScript
+### Details:
+
+
+## 2. Configurar Tailwind CSS [pending]
+### Dependencies: None
+### Description: Instalar e configurar Tailwind CSS com tema personalizado
+### Details:
+
+
+## 3. Configurar shadcn/ui [pending]
+### Dependencies: None
+### Description: Instalar e configurar shadcn/ui para componentes base
+### Details:
+
+
+## 4. Instalar dependências de animação e drag & drop [pending]
+### Dependencies: None
+### Description: Framer Motion, React DnD e outras bibliotecas essenciais
+### Details:
+
+

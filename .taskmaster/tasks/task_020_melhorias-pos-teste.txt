@@ -1,0 +1,11 @@
+# Task ID: 20
+# Title: Painel de Ajuda Minimalista
+# Status: pending
+# Dependencies: None
+# Priority: low
+# Description: Criar painel de ajuda com atalhos e dicas de uso
+# Details:
+Modal minimalista com lista de atalhos organizados por categoria (navegação, criação, edição). Acessível via ? ou Help. Design clean inspirado no Miro com busca de atalhos
+
+# Test Strategy:
+

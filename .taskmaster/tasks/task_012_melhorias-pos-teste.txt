@@ -1,0 +1,11 @@
+# Task ID: 12
+# Title: Barra de Ferramentas Flutuante por Card
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Implementar barra flutuante para cada card com ações contextuais
+# Details:
+Criar barra que aparece ao clicar no card e some ao arrastar. Incluir ações: adicionar tags, excluir, mudar cor, duplicar. Posicionar estrategicamente (acima ou ao lado do card) com animação suave
+
+# Test Strategy:
+

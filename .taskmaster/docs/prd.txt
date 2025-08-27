@@ -1,0 +1,133 @@
+PRD – Workspace Visual de Brainstorm & Referências
+
+(versão com guia visual)
+
+1. Visão Geral
+
+Aplicativo pessoal para brainstorm e organização de referências em um espaço visual 2D.
+Interface minimalista, suave e acolhedora → deve transmitir leveza, criatividade e fluidez.
+
+2. Identidade Visual & Estética
+
+Estilo geral:
+- Minimalista, clean, inspirado em macOS apps modernos.
+- Uso de bordas arredondadas (2xl) em todos os cards.
+- Sombras suaves, sem excesso.
+- Fundo neutro (cinza claro suave) para destacar os conteúdos.
+
+Tipografia:
+- Títulos → Sans-serif bold (ex: Inter, SF Pro Display).
+- Texto → regular, legível em corpo 14–16px.
+- Hierarquia tipográfica clara (título > subtítulo > corpo).
+
+Cores:
+- Base em escala de cinza (preto, cinza escuro, cinza claro, branco).
+- Stickies coloridos (rosa, amarelo, verde, roxo) para contraste e destaque.
+- Feedback de interação com sutileza (hover com sombra, realce ao arrastar).
+
+Animações:
+- Naturais, rápidas (200–300ms).
+- Expandir/recolher com easing suave.
+- Agrupar/desagrupar com microtransições visuais (ex: notas "se aproximando").
+
+3. Layout & Estrutura Visual
+
+3.1. Board Principal
+- Área livre, fundo cinza claro.
+- Cards espalhados em layout totalmente livre (drag & drop).
+- Barra superior fixa com:
+  - Botão + → adicionar novo item.
+  - Campo de busca.
+  - Botão menu/visualização.
+
+3.2. Tipos de Cards
+
+Notas curtas (Stickies)
+- Fundo colorido (rosa, amarelo, verde, etc.).
+- Pequenas (100x100px a 200x200px).
+- Texto curto, tamanho maior, com feeling de Post-it.
+- Flutuam sobre notas maiores quando anexadas.
+
+Notas longas (Papers)
+- Fundo branco ou cinza claro.
+- 300x400px (mínimo), expansível.
+- Contêm título, corpo de texto, checklists.
+- Ao clicar → expande em full view (modo edição).
+
+Imagens
+- Renderizadas como card com borda arredondada.
+- Podem receber stickies grudados por cima.
+
+Links
+- Preview com título, descrição e thumbnail.
+- Aparência próxima a um card médio.
+
+PDFs
+- Card com ícone + título.
+- Ao clicar → abre modal ou painel para leitura.
+
+3.3. Organização Visual
+
+Stacks
+- Ao agrupar cards, viram um "stack" com bordas levemente mais espessas.
+- Expandem com clique → revelam os itens sobrepostos em leque/coluna.
+
+Tags
+- Pequenos chips coloridos que aparecem no canto superior do card.
+
+Busca
+- Resultados destacados visualmente no board (ex: brilho em torno do card).
+
+4. Interações Visuais
+
+Drag & Drop
+- Card "levanta" com sombra ao ser arrastado.
+- Áreas de stack brilham ao receber item.
+
+Undo/Redo
+- Animações de reversão (nota voltando para lugar anterior).
+
+Expandir Nota Longa
+- Transição suave de card → tela cheia.
+- Cabeçalho fixo com título, botão voltar, opções de formatação.
+
+Chat com Arquivos/Notas (IA)
+- Janela lateral que desliza pela direita.
+- Visual clean, estilo chat (bolhas minimalistas).
+
+5. MVP Visual (Fase 0)
+
+Board 2D com fundo cinza claro.
+Stickies coloridos + notas brancas maiores.
+Arrastar/soltar livre.
+Stacks com microanimação.
+Expandir nota longa em tela cheia.
+
+6. Inspirações Visuais
+
+Muse App (board visual com notas e imagens).
+FigJam (fluidez e liberdade de arrastar/soltar).
+Notion (tipografia limpa e hierarquia clara).
+
+7. Requisitos Técnicos
+
+Frontend:
+- React/Next.js com TypeScript
+- Tailwind CSS para estilização
+- Framer Motion para animações
+- React DnD para drag & drop
+- shadcn/ui para componentes base
+
+Backend:
+- API REST para persistência
+- Banco de dados para metadados
+- Sistema de arquivos para uploads
+- Vector store para busca semântica
+
+Funcionalidades Core:
+- Criação e edição de notas
+- Upload e visualização de arquivos
+- Sistema de tags e categorização
+- Busca semântica
+- Organização visual por drag & drop
+- Chat com IA para análise de conteúdo

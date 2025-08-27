@@ -1,0 +1,31 @@
+# Task ID: 5
+# Title: Sistema de Cards - Stickies
+# Status: pending
+# Dependencies: 3, 6
+# Priority: high
+# Description: Implementar notas curtas coloridas (stickies) com drag & drop
+# Details:
+Cards pequenos coloridos (100x100px a 200x200px) com fundo colorido e texto curto
+
+# Test Strategy:
+Testar criação, edição, drag & drop e responsividade dos stickies
+
+# Subtasks:
+## 1. Criar componente Sticky [pending]
+### Dependencies: None
+### Description: Card colorido com bordas arredondadas e texto editável
+### Details:
+
+
+## 2. Implementar sistema de cores [pending]
+### Dependencies: None
+### Description: Paleta de cores para stickies (rosa, amarelo, verde, roxo)
+### Details:
+
+
+## 3. Adicionar funcionalidade de edição [pending]
+### Dependencies: None
+### Description: Edição inline do texto com salvamento automático
+### Details:
+
+

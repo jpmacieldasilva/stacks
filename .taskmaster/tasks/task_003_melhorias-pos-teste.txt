@@ -1,0 +1,11 @@
+# Task ID: 3
+# Title: Seleção Múltipla de Cards
+# Status: done
+# Dependencies: None
+# Priority: high
+# Description: Permitir múltiplas seleções para manipulações em grupo
+# Details:
+Implementar sistema para selecionar múltiplos cards (Ctrl+click ou drag selection) e permitir mover, excluir ou aplicar ações em grupo. Incluir feedback visual para cards selecionados
+
+# Test Strategy:
+

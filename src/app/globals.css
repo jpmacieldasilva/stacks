@@ -1,26 +1,1622 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Estilos base para o workspace */
+body {
+  margin: 0;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(to bottom, #4ecdcf99 0%, #14f9fd99 100%);
+  overflow: hidden;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Estilos para o board */
+.board-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #4ecdcf99 0%, #14f9fd99 100%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.board {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  cursor: grab;
+  user-select: none;
+}
+
+.board:active {
+  cursor: grabbing;
+}
+
+/* Estilos para cards */
+.card-base {
+  position: absolute;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease-in-out;
+  cursor: grab;
+  user-select: none;
+  min-width: 200px;
+  min-height: 150px;
+  resize: both;
+  overflow: hidden;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5px;
+}
+
+.card-base:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.card-base:active {
+  cursor: grabbing;
+}
+
+.card-base.selected {
+  box-shadow: 0 0 0 3px #3b82f6;
+  z-index: 50;
+}
+
+/* Estilos específicos para papers */
+.paper-note {
+  background: #ffffff;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  min-width: 320px;
+  min-height: 240px;
+  max-width: 600px;
+  max-height: 800px;
+  transition: all 0.2s ease-in-out;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.paper-note:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+.paper-header {
+  padding: 24px 24px 16px;
+  border-bottom: none;
+  background: transparent;
+}
+
+.paper-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #6b7280;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  width: 100%;
+  font-family: inherit;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.paper-title::placeholder {
+  color: #9ca3af;
+}
+
+.paper-main-heading {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  width: 100%;
+  font-family: inherit;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  min-height: 32px;
+}
+
+.paper-main-heading::placeholder {
+  color: #d1d5db;
+}
+
+.paper-content {
+  padding: 0 24px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.paper-text-area {
+  flex: 1;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #374151;
+  font-family: inherit;
+  min-height: 120px;
+}
+
+.paper-text-area::placeholder {
+  color: #d1d5db;
+}
+
+.paper-section-heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  width: 100%;
+  font-family: inherit;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  min-height: 24px;
+}
+
+.paper-section-heading::placeholder {
+  color: #d1d5db;
+}
+
+.paper-checklist {
+  margin-top: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+}
+
+.paper-checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 4px 0;
+  border-bottom: none;
+  margin-bottom: 8px;
+}
+
+.paper-checklist-item span {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #374151;
+  flex: 1;
+}
+
+.paper-checklist-item.completed span {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+.paper-checklist-subtask {
+  margin-left: 24px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.paper-checklist-subtask span {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.paper-checklist-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #d1d5db;
+  background: transparent;
+  margin-top: 2px;
+  flex-shrink: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.paper-checklist-item input[type="checkbox"]:checked {
+  background: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.paper-checklist-item input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.paper-checklist-subtask input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  border-width: 1.5px;
+}
+
+.paper-checklist-subtask input[type="checkbox"]:checked::after {
+  left: 3px;
+  top: 1px;
+  width: 3px;
+  height: 6px;
+  border-width: 0 1.5px 1.5px 0;
+}
+
+/* Estilos para sticky notes - Design do Figma */
+.sticky-note {
+  background: #f5ce65;
+  border: none;
+  min-width: 150px;
+  min-height: 120px;
+  max-width: 300px;
+  max-height: 300px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: normal;
+  color: #000000;
+}
+
+/* Variações de cor para sticky notes aplicadas por ActionBar */
+.sticky-pink { background: #f472b6; color: #000000; }
+.sticky-yellow { background: #facc15; color: #000000; }
+.sticky-green { background: #34d399; color: #000000; }
+.sticky-purple { background: #a78bfa; color: #000000; }
+.sticky-blue { background: #60a5fa; color: #000000; }
+.sticky-orange { background: #fb923c; color: #000000; }
+
+.sticky-content {
+  padding: 0;
+  font-size: 16px;
+  line-height: normal;
+  color: #000000;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5px;
+}
+
+.sticky-content::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* Estilos para image cards */
+.image-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  min-width: 200px;
+  min-height: 150px;
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.image-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: white;
+  padding: 16px;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Estilos para link cards */
+.link-card {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  border: 1px solid #3b82f6;
+  min-width: 250px;
+  min-height: 120px;
+  max-width: 400px;
+  max-height: 200px;
+}
+
+.link-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.link-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e40af;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  width: 100%;
+  font-family: inherit;
+}
+
+.link-title::placeholder {
+  color: #60a5fa;
+}
+
+.link-url {
+  font-size: 14px;
+  color: #2563eb;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  width: 100%;
+  font-family: inherit;
+  text-decoration: underline;
+}
+
+.link-url::placeholder {
+  color: #93c5fd;
+}
+
+.link-description {
+  font-size: 12px;
+  color: #1e40af;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  width: 100%;
+  font-family: inherit;
+  line-height: 1.4;
+}
+
+.link-description::placeholder {
+  color: #60a5fa;
+}
+
+/* Estilos para PDF cards */
+.pdf-card {
+  background: #ffffff !important;
+  border: none !important;
+  min-width: 240px !important;
+  min-height: auto !important;
+  max-width: 240px !important;
+  max-height: none !important;
+  width: 240px !important;
+  height: auto !important;
+  padding: 16px !important;
+  gap: 10px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  box-shadow: 0px 4px 4px -1px rgba(12,12,13,0.1), 0px 4px 4px -1px rgba(12,12,13,0.05) !important;
+  border-radius: 16px !important;
+  overflow: visible !important;
+}
+
+.pdf-card .figma-paper-title-view-only {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #1e1e1e !important;
+  text-align: left !important;
+  margin-bottom: 0 !important;
+  max-height: none !important;
+  height: auto !important;
+  line-height: normal !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  flex-shrink: 0 !important;
+}
+
+.pdf-card .figma-paper-content-view-only {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: #1e1e1e !important;
+  text-align: left !important;
+  margin-bottom: 0 !important;
+  max-height: none !important;
+  height: auto !important;
+  line-height: normal !important;
+  overflow: visible !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  flex-shrink: 0 !important;
+}
+
+/* Responsividade para PDF cards */
+@media (max-width: 768px) {
+  .pdf-card {
+    width: 100% !important;
+    max-width: 500px !important;
+    min-width: 320px !important;
+    height: auto !important;
+    min-height: auto !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (max-width: 480px) {
+  .pdf-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
 }
+
+/* Estilos para o minimap */
+.minimap {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 200px;
+  height: 150px;
+  background: rgb(255, 0, 0);
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(208, 15, 15, 0.5);
+  z-index: 100;
+  overflow: hidden;
+  opacity: 1;
+}
+
+.minimap-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.minimap-viewport {
+  position: absolute;
+  border: 2px solid #3b82f6;
+  background: rgba(59, 130, 246, 1);
+  border-radius: 4px;
+  cursor: move;
+}
+
+.minimap-card {
+  position: absolute;
+  background: #3b82f6;
+  border-radius: 2px;
+  opacity: 1;
+}
+
+/* Estilos para controles de zoom */
+.zoom-controls {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 100;
+}
+
+.zoom-button {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.zoom-button:hover {
+  background: #f8fafc;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.zoom-button:active {
+  transform: translateY(0);
+}
+
+.zoom-level {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para a barra de ações */
+.action-bar {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  z-index: 100;
+}
+
+.action-button {
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.action-button:hover {
+  background: #f8fafc;
+  color: #334155;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.action-button:active {
+  transform: translateY(0);
+}
+
+.action-button.primary {
+  background: #3b82f6;
+  color: white;
+  border-color: #2563eb;
+}
+
+.action-button.primary:hover {
+  background: #2563eb;
+}
+
+/* Estilos para o header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Estilos para a barra de ferramentas */
+.toolbar {
+  position: fixed;
+  top: 80px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 100;
+}
+
+.toolbar-button {
+  width: 48px;
+  height: 48px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toolbar-button:hover {
+  background: #f8fafc;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.toolbar-button:active {
+  transform: translateY(0);
+}
+
+.toolbar-button.active {
+  background: #3b82f6;
+  color: white;
+  border-color: #2563eb;
+}
+
+/* Estilos para seleção múltipla */
+.selection-box {
+  position: absolute;
+  border: 2px solid #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 40;
+}
+
+/* Estilos para drag and drop */
+.drag-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(59, 130, 246, 0.1);
+  border: 3px dashed #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.drag-overlay-content {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.drag-overlay-icon {
+  width: 64px;
+  height: 64px;
+  color: #3b82f6;
+  margin: 0 auto 16px;
+}
+
+.drag-overlay-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.drag-overlay-subtext {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* Estilos para loading */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Estilos para notificações */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-width: 400px;
+  animation: slideIn 0.3s ease-out;
+}
+
+.notification.success {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+.notification.error {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+.notification.warning {
+  border-color: #f59e0b;
+  background: #fffbeb;
+}
+
+.notification.info {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Estilos para tooltips */
+.tooltip {
+  position: absolute;
+  background: #1e293b;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 1000;
+  pointer-events: none;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: #1e293b;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos para modais */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
+  animation: slideIn 0.3s ease-out;
+}
+
+.modal-header {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.modal-close {
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.modal-body {
+  padding: 20px 24px;
+}
+
+.modal-footer {
+  padding: 16px 24px 20px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+/* Estilos para formulários */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  resize: vertical;
+  min-height: 100px;
+  transition: border-color 0.2s ease;
+}
+
+.form-textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Estilos para botões */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  gap: 8px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+  border-color: #2563eb;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.btn-secondary {
+  background: white;
+  color: #374151;
+  border-color: #d1d5db;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #f9fafb;
+}
+
+.btn-danger {
+  background: #ef4444;
+  color: white;
+  border-color: #dc2626;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+.btn-success {
+  background: #10b981;
+  color: white;
+  border-color: #059669;
+}
+
+.btn-success:hover:not(:disabled) {
+  background: #059669;
+}
+
+/* Estilos para tags */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  font-size: 12px;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.tag.selected {
+  background: #3b82f6;
+  color: white;
+  border-color: #2563eb;
+}
+
+.tag-remove {
+  width: 16px;
+  height: 16px;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.tag-remove:hover {
+  opacity: 1;
+}
+
+/* Estilos para busca */
+.search-container {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+.search-input {
+  width: 300px;
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 101;
+}
+
+.search-result-item {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.search-result-item:hover {
+  background: #f8fafc;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.search-result-content {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+/* Estilos para responsividade */
+@media (max-width: 768px) {
+  .minimap {
+    width: 150px;
+    height: 112px;
+    bottom: 16px;
+    left: 16px;
+  }
+  
+  .zoom-controls {
+    bottom: 16px;
+    left: 16px;
+  }
+  
+  .action-bar {
+    top: 16px;
+    right: 16px;
+  }
+  
+  .header {
+    height: 56px;
+    padding: 0 16px;
+  }
+  
+  .toolbar {
+    top: 72px;
+    left: 16px;
+  }
+  
+  .search-container {
+    top: 72px;
+  }
+  
+  .search-input {
+    width: 280px;
+  }
+  
+  .modal-content {
+    margin: 16px;
+    max-width: calc(100vw - 32px);
+  }
+}
+
+@media (max-width: 480px) {
+  .search-input {
+    width: 240px;
+  }
+  
+  .action-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  .toolbar-button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Estilos para acessibilidade */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Estilos para foco */
+*:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Exceção para textareas de sticky notes - sem borda de foco */
+.sticky-note textarea:focus {
+  outline: none;
+  outline-offset: 0;
+}
+
+/* Exceção para textareas de outros tipos de cards - sem borda de foco */
+.paper-note textarea:focus,
+.link-card textarea:focus,
+.image-card textarea:focus {
+  outline: none;
+  outline-offset: 0;
+}
+
+/* Exceção para inputs de outros tipos de cards - sem borda de foco */
+.paper-note input:focus,
+.link-card input:focus,
+.image-card input:focus {
+  outline: none;
+  outline-offset: 0;
+}
+
+/* Estilos para seleção */
+::selection {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+::-moz-selection {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+/* Estilos para scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Estilos para animações */
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Estilos para estados de carregamento */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Estilos para notificações de sucesso */
+.success-notification {
+  background: #f0fdf4;
+  border-color: #10b981;
+  color: #065f46;
+}
+
+/* Estilos para notificações de erro */
+.error-notification {
+  background: #fef2f2;
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+/* Estilos para notificações de aviso */
+.warning-notification {
+  background: #fffbeb;
+  border-color: #f59e0b;
+  color: #92400e;
+}
+
+/* Estilos para notificações de informação */
+.info-notification {
+  background: #eff6ff;
+  border-color: #3b82f6;
+  color: #1e40af;
+}
+
+/* Novo estilo para o layout do Figma */
+.figma-layout {
+  background: linear-gradient(to bottom, #4ecdcf99 0%, #14f9fd99 100%);
+}
+
+.figma-header {
+  background: #2c2c2c;
+  border-radius: 12px;
+  padding: 8px 7px;
+}
+
+.figma-toolbar {
+  background: #2c2c2c;
+  border-radius: 12px;
+  padding: 8px 7px;
+}
+
+.figma-minimap {
+  background: #2c2c2c;
+  border-radius: 12px;
+  padding: 8px 7px;
+  width: 120px;
+  height: 40px;
+}
+
+/* Estilos específicos para o Paper do Figma */
+.figma-paper {
+  background: #ffffff;
+  box-sizing: border-box;
+  content-stretch: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Reduzido de 10px para 8px para ficar mais próximo do Figma */
+  align-items: flex-start;
+  justify-content: flex-start;
+  line-height: 0;
+  font-style: normal;
+  padding: 32px; /* Mantido 32px como no design */
+  position: relative;
+  border-radius: 16px;
+  box-shadow: 0px 4px 4px -1px rgba(12,12,13,0.1), 0px 4px 4px -1px rgba(12,12,13,0.05);
+  width: 240px; /* Largura fixa mais apropriada para um paper */
+  max-width: 100%; /* Responsivo em telas menores */
+  height: 400px; /* Reduzido de 420px para 400px para melhor proporção */
+  color: #1e1e1e;
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  overflow: hidden; /* Esconde conteúdo que excede a altura */
+  margin: 0 auto; /* Centraliza o paper */
+}
+
+.figma-paper-title {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.3; /* Ajustado para melhor legibilidade */
+  color: #1e1e1e;
+  width: 100%;
+  margin-bottom: 0; /* Removido para usar gap do container */
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  font-style: normal;
+  max-height: 120px; /* Aumentado para acomodar o título completo */
+  overflow: visible; /* Alterado para não cortar o texto */
+}
+
+.figma-paper-title::placeholder {
+  color: #9ca3af;
+}
+
+.figma-paper-content {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: normal;
+  color: #1e1e1e;
+  width: 100%;
+  flex: 1;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  height: 300px; /* Altura fixa para o conteúdo */
+  max-height: 300px; /* Garante que não exceda */
+  overflow: hidden; /* Esconde conteúdo que excede */
+  font-style: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 20; /* Limita a 20 linhas para preview */
+  -webkit-box-orient: vertical;
+}
+
+.figma-paper-content::placeholder {
+  color: #9ca3af;
+}
+
+/* Indicador de preview truncado */
+.figma-paper-preview-indicator {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(30, 30, 30, 0.1);
+  color: #1e1e1e;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+/* Responsividade para o paper do Figma */
+@media (max-width: 768px) {
+  .figma-paper {
+    width: 100%;
+    max-width: 500px;
+    padding: 32px; /* Mantido 32px como no design */
+    height: 400px;
+    gap: 8px; /* Mantido gap de 8px para consistência */
+  }
+  
+  .figma-paper-title {
+    font-size: 20px;
+    max-height: 100px; /* Ajustado para não cortar */
+    line-height: 1.3;
+  }
+  
+  .figma-paper-content {
+    font-size: 11px;
+    height: 280px;
+    max-height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .figma-paper {
+    width: 100%;
+    max-width: 100%;
+    padding: 32px; /* Mantido 32px como no design */
+    height: 380px;
+    gap: 8px; /* Mantido gap de 8px para consistência */
+  }
+  
+  .figma-paper-title {
+    font-size: 18px;
+    max-height: 80px; /* Ajustado para não cortar */
+    line-height: 1.3;
+  }
+  
+  .figma-paper-content {
+    font-size: 10px;
+    height: 260px;
+    max-height: 260px;
+  }
+}
+
+/* Estilos para visualização do paper no canvas (não editável) */
+.figma-paper-title-view-only {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.3; /* Ajustado para melhor legibilidade */
+  color: #1e1e1e;
+  width: 100%;
+  margin-bottom: 0; /* Removido para usar gap do container */
+  max-height: 120px; /* Aumentado para acomodar o título completo */
+  overflow: visible; /* Alterado para não cortar o texto */
+  pointer-events: none; /* Não permite interação no canvas */
+  user-select: none; /* Não permite seleção de texto */
+}
+
+.figma-paper-content-view-only {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: normal;
+  color: #1e1e1e;
+  width: 100%;
+  flex: 1;
+  height: 300px;
+  max-height: 300px;
+  overflow: hidden;
+  font-style: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 20;
+  -webkit-box-orient: vertical;
+  pointer-events: none; /* Não permite interação no canvas */
+  user-select: none; /* Não permite seleção de texto */
+}
+
+/* Estilos para checklist no canvas */
+.paper-checklist-item,
+.paper-checklist-subtask {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  pointer-events: none; /* Não permite interação no canvas */
+}
+
+.paper-checklist-item input[type="checkbox"],
+.paper-checklist-subtask input[type="checkbox"] {
+  pointer-events: none; /* Não permite interação no canvas */
+  opacity: 0.7; /* Visual mais suave para indicar que é só visualização */
+}
+
+.paper-checklist-subtask {
+  margin-left: 20px; /* Indentação para subtarefas */
+  opacity: 0.8; /* Visual mais suave para subtarefas */
+}
+
+/* Estilos para botões de redimensionamento */
+.resize-button {
+  pointer-events: auto !important;
+  user-select: none;
+  touch-action: none;
+  z-index: 1000 !important;
+}
+
+.resize-button:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}
+
+.resize-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Garantir que os botões sejam visíveis e clicáveis */
+.image-card:hover .resize-button {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Debug: Handle de teste sempre visível */
+.image-card .debug-handle {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  z-index: 9999 !important;
+}
+
+/* ===== OTIMIZAÇÕES DE PERFORMANCE PARA DRAGGING ===== */
+
+/* Otimizações de performance para dragging */
+.sticky-note.dragging,
+.figma-paper.dragging,
+.pdf-card.dragging,
+.image-card.dragging,
+.link-card-fixed.dragging {
+  /* Desabilitar transições durante dragging para resposta imediata */
+  transition: none !important;
+  /* Aceleração de hardware */
+  transform: scale(1.05) translateZ(0) !important;
+  will-change: transform !important;
+  /* Elevar z-index para ficar acima de outros elementos */
+  z-index: 50 !important;
+  /* Sombra mais pronunciada durante dragging */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Estilos para cards quando não estão sendo arrastados */
+.sticky-note:not(.dragging),
+.figma-paper:not(.dragging),
+.pdf-card:not(.dragging),
+.image-card:not(.dragging),
+.link-card-fixed:not(.dragging) {
+  /* Transições suaves apenas quando não está sendo arrastado */
+  transition: all 0.2s ease;
+  transform: translateZ(0);
+  will-change: auto;
+}
+
+/* Aceleração de hardware para todos os cards */
+.sticky-note,
+.figma-paper,
+.pdf-card,
+.image-card,
+.link-card-fixed {
+  /* Otimização: aceleração de hardware para melhor performance */
+  transform: translateZ(0);
+  will-change: auto;
+  /* Melhorar performance de renderização */
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+

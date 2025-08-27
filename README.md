@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Stacks - Aplicativo de Anotações Inteligentes
 
-## Getting Started
+## Funcionalidades Implementadas
 
-First, run the development server:
+## 🖼️ **Redimensionamento de Imagens**
 
+### **Sistema de Botões Incrementais**
+As imagens agora podem ser redimensionadas usando botões incrementais simples e confiáveis:
+
+- **Botão Azul (+)** : Aumenta o tamanho em 50px
+- **Botão Cinza (−)** : Diminui o tamanho em 50px
+- **Limites de Tamanho**:
+  - **Mínimo**: 100 × 100 pixels
+  - **Máximo**: 800 × 600 pixels
+  - **Incremento**: 50 pixels por clique
+
+### **Como Usar**
+1. **Passe o mouse** sobre uma imagem para revelar os botões
+2. **Clique no botão +** para aumentar o tamanho
+3. **Clique no botão −** para diminuir o tamanho
+4. **Indicador de tamanho** aparece no canto superior esquerdo no hover
+
+### **Características**
+- ✅ **Sistema confiável** baseado em botões (não em drag & drop)
+- ✅ **Incrementos consistentes** de 50px
+- ✅ **Limites de segurança** para evitar tamanhos extremos
+- ✅ **Interface limpa** sem handles visuais desnecessários
+- ✅ **Feedback visual** com indicador de tamanho atual
+- ✅ **Botões desabilitados** quando atingem limites
+
+### **Vantagens da Nova Abordagem**
+- **Mais confiável** que drag & drop
+- **Controle preciso** do tamanho
+- **Interface mais limpa** e intuitiva
+- **Funciona em todos os dispositivos** (desktop e mobile)
+- **Sem conflitos** com funcionalidade de movimento
+
+### Outras Funcionalidades
+- Sistema de cards (sticky notes, imagens, PDFs, links)
+- Upload de arquivos
+- Sistema de tags
+- Busca semântica
+- Zoom e pan no canvas
+- Seleção múltipla de cards
+
+## Tecnologias
+- Next.js 15
+- React 18
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+
+## Como Executar
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Estrutura do Projeto
+- `/src/components/board/` - Componentes do canvas
+- `/src/contexts/` - Contextos React para estado global
+- `/src/hooks/` - Hooks customizados
+- `/src/types/` - Definições de tipos TypeScript

@@ -1,0 +1,758 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Configuração Inicial do Projeto",
+        "description": "Configurar a estrutura base do projeto Next.js com TypeScript e dependências essenciais",
+        "details": "Inicializar projeto Next.js, configurar TypeScript, Tailwind CSS, shadcn/ui e outras dependências base",
+        "status": "done",
+        "priority": "high",
+        "dependencies": [],
+        "complexity": 3,
+        "testStrategy": "Verificar se o projeto compila e roda sem erros",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Inicializar projeto Next.js com TypeScript",
+            "description": "Criar projeto Next.js com configuração TypeScript",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Configurar Tailwind CSS",
+            "description": "Instalar e configurar Tailwind CSS com tema personalizado",
+            "status": "done"
+          },
+          {
+            "id": 3,
+            "title": "Configurar shadcn/ui",
+            "description": "Instalar e configurar shadcn/ui para componentes base",
+            "status": "done"
+          },
+          {
+            "id": 4,
+            "title": "Instalar dependências de animação e drag & drop",
+            "description": "Framer Motion, React DnD e outras bibliotecas essenciais",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Sistema de Design e Componentes Base",
+        "description": "Criar sistema de design consistente com componentes reutilizáveis",
+        "details": "Implementar sistema de cores, tipografia, espaçamentos e componentes base seguindo as especificações do PRD",
+        "status": "done",
+        "priority": "high",
+        "dependencies": [
+          "1"
+        ],
+        "complexity": 4,
+        "testStrategy": "Verificar consistência visual e responsividade dos componentes",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Configurar sistema de cores e tipografia",
+            "description": "Definir paleta de cores em escala de cinza e sistema tipográfico",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Criar componentes de layout base",
+            "description": "Container, Grid, Flexbox e outros componentes de layout",
+            "status": "done"
+          },
+          {
+            "id": 3,
+            "title": "Implementar sistema de sombras e bordas",
+            "description": "Sombras suaves e bordas arredondadas (2xl) conforme especificado",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Board Principal e Sistema de Grid",
+        "description": "Implementar o board 2D principal com fundo cinza claro e área de trabalho livre",
+        "details": "Criar o canvas principal onde os cards serão posicionados livremente com drag & drop",
+        "status": "done",
+        "priority": "high",
+        "dependencies": [
+          "2"
+        ],
+        "complexity": 5,
+        "testStrategy": "Testar navegação pelo board e responsividade em diferentes tamanhos de tela",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Criar componente Board principal",
+            "description": "Área de trabalho 2D com fundo cinza claro e scroll infinito",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Implementar sistema de coordenadas",
+            "description": "Sistema para posicionar e rastrear posições dos cards no board",
+            "status": "done"
+          },
+          {
+            "id": 3,
+            "title": "Configurar viewport e zoom",
+            "description": "Sistema de zoom in/out e navegação pelo board",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Barra Superior e Controles",
+        "description": "Implementar barra superior fixa com botões de ação e busca",
+        "details": "Barra superior com botão + para adicionar itens, campo de busca e menu de visualização",
+        "status": "done",
+        "priority": "medium",
+        "dependencies": [
+          "2"
+        ],
+        "complexity": 3,
+        "testStrategy": "Verificar funcionalidade dos botões e responsividade da barra",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Criar componente Header",
+            "description": "Barra superior fixa com fundo e sombra sutil",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Implementar botão de adicionar item",
+            "description": "Botão + com hover effects e dropdown de tipos de conteúdo",
+            "status": "done"
+          },
+          {
+            "id": 3,
+            "title": "Criar campo de busca",
+            "description": "Campo de busca com ícone e funcionalidade de filtro",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Sistema de Cards - Stickies",
+        "description": "Implementar notas curtas coloridas (stickies) com drag & drop",
+        "details": "Cards pequenos coloridos (100x100px a 200x200px) com fundo colorido e texto curto",
+        "status": "done",
+        "priority": "high",
+        "dependencies": [
+          "3",
+          "6"
+        ],
+        "complexity": 4,
+        "testStrategy": "Testar criação, edição, drag & drop e responsividade dos stickies",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Criar componente Sticky",
+            "description": "Card colorido com bordas arredondadas e texto editável",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Implementar sistema de cores",
+            "description": "Paleta de cores para stickies (rosa, amarelo, verde, roxo)",
+            "status": "done"
+          },
+          {
+            "id": 3,
+            "title": "Adicionar funcionalidade de edição",
+            "description": "Edição inline do texto com salvamento automático",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Sistema de Drag & Drop",
+        "description": "Implementar sistema completo de drag & drop para todos os cards",
+        "details": "Sistema que permite arrastar e soltar cards livremente no board com feedback visual",
+        "status": "done",
+        "priority": "high",
+        "dependencies": [
+          "3"
+        ],
+        "complexity": 6,
+        "testStrategy": "Testar drag & drop em diferentes dispositivos e cenários",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Configurar React DnD",
+            "description": "Implementar sistema base de drag & drop com React DnD",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Implementar feedback visual durante drag",
+            "description": "Card 'levanta' com sombra ao ser arrastado",
+            "status": "done"
+          },
+          {
+            "id": 3,
+            "title": "Criar sistema de posicionamento",
+            "description": "Salvar e restaurar posições dos cards no board",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Sistema de Cards - Papers",
+        "description": "Implementar notas longas expansíveis (papers) com modo full view",
+        "details": "Cards maiores (300x400px mínimo) que expandem para tela cheia ao clicar",
+        "status": "done",
+        "priority": "medium",
+        "dependencies": [
+          "5",
+          "6"
+        ],
+        "complexity": 5,
+        "testStrategy": "Testar expansão, edição e responsividade dos papers",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Criar componente Paper",
+            "description": "Card branco/cinza com título, corpo de texto e checklists",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Implementar modo full view",
+            "description": "Transição suave de card para tela cheia com cabeçalho fixo",
+            "status": "done"
+          },
+          {
+            "id": 3,
+            "title": "Adicionar funcionalidades de edição",
+            "description": "Editor de texto rico com formatação básica",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Sistema de Stacks e Agrupamento",
+        "description": "Implementar sistema de agrupamento visual de cards em stacks",
+        "details": "Cards agrupados viram stacks com bordas mais espessas e expansão em leque",
+        "status": "done",
+        "priority": "medium",
+        "dependencies": [
+          "6"
+        ],
+        "complexity": 6,
+        "testStrategy": "Testar criação, expansão e visualização dos stacks",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Criar lógica de agrupamento",
+            "description": "Detectar quando cards estão próximos para formar stack",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Implementar visualização de stack",
+            "description": "Bordas mais espessas e indicador visual de agrupamento",
+            "status": "done"
+          },
+          {
+            "id": 3,
+            "title": "Adicionar expansão em leque",
+            "description": "Clique expande stack revelando cards sobrepostos",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Sistema de Tags e Categorização",
+        "description": "Implementar sistema de tags coloridas para organização dos cards",
+        "details": "Chips coloridos no canto superior dos cards para categorização e busca",
+        "status": "done",
+        "priority": "low",
+        "dependencies": [
+          "5",
+          "7"
+        ],
+        "complexity": 3,
+        "testStrategy": "Testar criação, edição e filtragem por tags",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Criar componente Tag",
+            "description": "Chip colorido com texto e opções de edição",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Implementar sistema de cores para tags",
+            "description": "Paleta de cores consistente para diferentes categorias",
+            "status": "done"
+          },
+          {
+            "id": 3,
+            "title": "Adicionar funcionalidade de filtro",
+            "description": "Filtrar cards por tags selecionadas",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "Sistema de Upload e Visualização de Arquivos",
+        "description": "Implementar upload e visualização de imagens, PDFs e links",
+        "details": "Sistema para anexar arquivos aos cards com preview e visualização",
+        "status": "done",
+        "priority": "medium",
+        "dependencies": [
+          "5",
+          "7"
+        ],
+        "complexity": 5,
+        "testStrategy": "Testar upload, preview e visualização de diferentes tipos de arquivo",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Implementar sistema de upload",
+            "description": "Drag & drop de arquivos e botão de upload",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Criar preview de imagens",
+            "description": "Renderização de imagens como cards com bordas arredondadas",
+            "status": "done"
+          },
+          {
+            "id": 3,
+            "title": "Implementar visualização de PDFs",
+            "description": "Modal ou painel para leitura de PDFs",
+            "status": "done"
+          },
+          {
+            "id": 4,
+            "title": "Criar preview de links",
+            "description": "Cards com título, descrição e thumbnail de links",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "title": "Sistema de Busca e Filtros",
+        "description": "Implementar busca semântica e filtros visuais no board",
+        "details": "Sistema de busca que destaca resultados visualmente e filtros por tipo de conteúdo",
+        "status": "done",
+        "priority": "medium",
+        "dependencies": [
+          "9",
+          "10"
+        ],
+        "complexity": 4,
+        "testStrategy": "Testar busca, filtros e destaque visual dos resultados",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Implementar busca por texto",
+            "description": "Busca em títulos e conteúdo dos cards",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Criar filtros por tipo",
+            "description": "Filtrar por stickies, papers, imagens, PDFs, links",
+            "status": "done"
+          },
+          {
+            "id": 3,
+            "title": "Implementar destaque visual",
+            "description": "Brilho em torno dos cards que correspondem à busca",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "title": "Sistema de Animações e Transições",
+        "description": "Implementar animações suaves e microtransições visuais",
+        "details": "Animações naturais de 200-300ms com easing suave para todas as interações",
+        "status": "done",
+        "priority": "low",
+        "dependencies": [
+          "5",
+          "6",
+          "7",
+          "8"
+        ],
+        "complexity": 4,
+        "testStrategy": "Testar fluidez das animações em diferentes dispositivos",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Configurar Framer Motion",
+            "description": "Implementar sistema base de animações com Framer Motion",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Adicionar animações de entrada/saída",
+            "description": "Animações suaves para criação e remoção de cards",
+            "status": "done"
+          },
+          {
+            "id": 3,
+            "title": "Implementar microtransições",
+            "description": "Animações sutis para hover, focus e interações",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "title": "Sistema de Persistência e Backend",
+        "description": "Implementar sistema de salvamento e persistência dos dados",
+        "details": "API REST para salvar posições, conteúdo e metadados dos cards",
+        "status": "done",
+        "priority": "medium",
+        "dependencies": [
+          "6",
+          "7",
+          "10"
+        ],
+        "complexity": 6,
+        "testStrategy": "Testar salvamento, carregamento e sincronização dos dados",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Criar estrutura de API",
+            "description": "Endpoints para CRUD de cards e metadados",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Implementar sistema de arquivos",
+            "description": "Upload, armazenamento e gerenciamento de arquivos",
+            "status": "done"
+          },
+          {
+            "id": 3,
+            "title": "Criar banco de dados",
+            "description": "Schema para metadados, posições e relacionamentos",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "title": "Sistema de Chat com IA",
+        "description": "Implementar chat lateral com IA para análise de conteúdo",
+        "details": "Janela lateral deslizante com interface de chat para interagir com arquivos e notas",
+        "status": "done",
+        "priority": "low",
+        "dependencies": [
+          "10",
+          "13"
+        ],
+        "complexity": 7,
+        "testStrategy": "Testar funcionalidade do chat e integração com conteúdo",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Criar componente de chat",
+            "description": "Interface lateral com bolhas de chat minimalistas",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Implementar integração com IA",
+            "description": "API para análise de conteúdo e geração de respostas",
+            "status": "done"
+          },
+          {
+            "id": 3,
+            "title": "Adicionar funcionalidades de análise",
+            "description": "Resumo automático, tagueamento e relacionamento de notas",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "title": "Testes e Otimização",
+        "description": "Implementar testes e otimizar performance da aplicação",
+        "details": "Testes unitários, de integração e otimizações de performance",
+        "status": "done",
+        "priority": "low",
+        "dependencies": [
+          "12",
+          "13",
+          "14"
+        ],
+        "complexity": 4,
+        "testStrategy": "Executar suite completa de testes e métricas de performance",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Implementar testes unitários",
+            "description": "Testes para componentes e funções principais",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Adicionar testes de integração",
+            "description": "Testes para fluxos completos da aplicação",
+            "status": "done"
+          },
+          {
+            "id": 3,
+            "title": "Otimizar performance",
+            "description": "Lazy loading, memoização e otimizações de renderização",
+            "status": "done"
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "created": "2025-08-26T03:22:06.183Z",
+      "updated": "2025-08-26T18:24:57.745Z",
+      "description": "Tasks for master context"
+    }
+  },
+  "melhorias-pos-teste": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Feedback Visual e Sonoro",
+        "description": "Adicionar feedback visual e sonoro para criação e edição de stickies",
+        "details": "Incluir animações sutis de confirmação quando um sticky é criado ou editado, e opcionalmente sons suaves para indicar sucesso nas ações",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 2,
+        "title": "Loading para Upload de Arquivos",
+        "description": "Exibir animação de loading ao fazer upload de imagens grandes",
+        "details": "Implementar indicador de progresso e loading spinner durante upload de arquivos, especialmente para imagens grandes, para melhorar a experiência do usuário",
+        "testStrategy": "",
+        "status": "done",
+        "dependencies": [],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 3,
+        "title": "Seleção Múltipla de Cards",
+        "description": "Permitir múltiplas seleções para manipulações em grupo",
+        "details": "Implementar sistema para selecionar múltiplos cards (Ctrl+click ou drag selection) e permitir mover, excluir ou aplicar ações em grupo. Incluir feedback visual para cards selecionados",
+        "testStrategy": "",
+        "status": "done",
+        "dependencies": [],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 4,
+        "title": "Busca Avançada com Autocompletar",
+        "description": "Melhorar buscador com resultados parciais e autocompletar",
+        "details": "Implementar busca que destaque resultados parciais, sugestões de autocompletar baseadas no conteúdo existente, e busca por sinônimos ou termos relacionados",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 5,
+        "title": "Personalização de Stickies e Stacks",
+        "description": "Permitir personalização de cores, tamanhos de stickies e configurações de stacks",
+        "details": "Implementar painel de personalização para cores customizadas de stickies, diferentes tamanhos (XS, S, M, L, XL), e configurações de stacks (distância para agrupamento, visual de empilhamento)",
+        "testStrategy": "",
+        "status": "done",
+        "dependencies": [],
+        "priority": "low",
+        "subtasks": []
+      },
+      {
+        "id": 6,
+        "title": "Atalhos de Teclado",
+        "description": "Implementar atalhos de teclado para power users",
+        "details": "Adicionar atalhos como Ctrl+N (novo sticky), Ctrl+F (busca), Del (excluir selecionados), Ctrl+D (duplicar), Ctrl+G (agrupar em stack), Esc (cancelar ações). Incluir painel de ajuda com lista de atalhos",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 7,
+        "title": "Tooltips e Ajuda Contextual",
+        "description": "Adicionar tooltips explicativas sobre filtros, stacks e ações avançadas",
+        "details": "Implementar sistema de tooltips inteligentes que aparecem ao hover em botões e recursos. Incluir tour guiado para novos usuários e help bubbles contextuais",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [],
+        "priority": "low",
+        "subtasks": []
+      },
+      {
+        "id": 8,
+        "title": "Acessibilidade",
+        "description": "Melhorar acessibilidade com navegação por teclado e suporte a leitores de tela",
+        "details": "Implementar navegação completa por teclado (Tab, Enter, Arrow keys), aria-labels adequados, contraste mínimo WCAG, suporte a screen readers, e foco visível em todos os elementos interativos",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 9,
+        "title": "Exportação e Compartilhamento",
+        "description": "Permitir exportar/compartilhar board inteiro como imagem ou PDF",
+        "details": "Implementar funcionalidade para exportar o board completo ou região selecionada como PNG/JPG/PDF, incluir metadados, e opção de compartilhamento via link ou QR code",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 10,
+        "title": "Confirmações de Segurança",
+        "description": "Adicionar confirmação ao deletar stacks ou cards sensíveis",
+        "details": "Implementar modais de confirmação para ações destrutivas, undo/redo para ações recentes, e lixeira temporária para recuperação de items excluídos acidentalmente",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 11,
+        "title": "Layout de Stickers Estilo Miro",
+        "description": "Melhorar layout dos stickers para texto se adaptar sem scroll, similar ao Miro",
+        "details": "Implementar sistema de auto-resize do texto baseado no tamanho do sticker, quebra de linha automática, e ajuste dinâmico do font-size para caber no container sem necessidade de scroll",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 12,
+        "title": "Barra de Ferramentas Flutuante por Card",
+        "description": "Implementar barra flutuante para cada card com ações contextuais",
+        "details": "Criar barra que aparece ao clicar no card e some ao arrastar. Incluir ações: adicionar tags, excluir, mudar cor, duplicar. Posicionar estrategicamente (acima ou ao lado do card) com animação suave",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 13,
+        "title": "Melhorar Layout de Empilhamento de Stacks",
+        "description": "Refazer visual de stacks para mostrar sobreposição real e melhor distribuição",
+        "details": "Implementar empilhamento visual real (cards ligeiramente deslocados), posicionar contador mais próximo ao stack, melhorar distribuição circular na expansão, e centralizar botão de fechar adequadamente",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 14,
+        "title": "Controles de Zoom e Minimap",
+        "description": "Implementar controles de zoom estilo Miro e minimap para navegação",
+        "details": "Adicionar controles de zoom (+/-) no canto, implementar zoom suave similar ao Miro, e criar minimap no canto inferior direito mostrando visão geral do board com viewport indicator",
+        "testStrategy": "",
+        "status": "done",
+        "dependencies": [],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 15,
+        "title": "Upload em Todo Canvas",
+        "description": "Transformar todo canvas em área de upload com feedback visual estilo Miro",
+        "details": "Remover área de upload específica e permitir drag & drop em qualquer lugar do canvas. Ao arrastar arquivo, mostrar overlay com mensagem de upload e indicador visual cobrindo toda a tela",
+        "testStrategy": "",
+        "status": "done",
+        "dependencies": [],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 16,
+        "title": "Metadados Automáticos para Links",
+        "description": "Buscar automaticamente nome e descrição do site ao adicionar links",
+        "details": "Implementar fetching de metadados (Open Graph) para extrair título, descrição e thumbnail dos links. Incluir fallback para sites sem metadados e loading state durante fetch",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 17,
+        "title": "Modo Tela Cheia para Papers",
+        "description": "Implementar edição de papers em modo tela cheia",
+        "details": "Ao editar paper, expandir para tela cheia com editor rico, barra de ferramentas de formatação, e transição suave. Incluir botão de voltar e auto-save",
+        "testStrategy": "",
+        "status": "done",
+        "dependencies": [],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 18,
+        "title": "Visualização Tela Cheia para Imagens",
+        "description": "Implementar modal tela cheia para visualização de imagens",
+        "details": "Ao clicar em imagem, abrir em tela cheia com fundo escuro, controles de zoom, rotação, e navegação por setas. Incluir informações da imagem (nome, tamanho, dimensões)",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 19,
+        "title": "Atalhos de Teclado Estilo Miro",
+        "description": "Implementar atalhos inspirados no Miro que não conflitem com browser",
+        "details": "Atalhos sugeridos: S (sticky), T (text/paper), Espaço+drag (pan), 1-6 (cores), Delete (excluir selecionados), Ctrl+D (duplicar), G (agrupar), Ctrl+A (selecionar todos), Z (zoom fit), + e - (zoom)",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 20,
+        "title": "Painel de Ajuda Minimalista",
+        "description": "Criar painel de ajuda com atalhos e dicas de uso",
+        "details": "Modal minimalista com lista de atalhos organizados por categoria (navegação, criação, edição). Acessível via ? ou Help. Design clean inspirado no Miro com busca de atalhos",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [],
+        "priority": "low",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-08-26T19:01:54.200Z",
+      "updated": "2025-08-27T00:10:11.845Z",
+      "description": "Melhorias identificadas após testes de validação funcional"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+# Task ID: 15
+# Title: Upload em Todo Canvas
+# Status: done
+# Dependencies: None
+# Priority: high
+# Description: Transformar todo canvas em área de upload com feedback visual estilo Miro
+# Details:
+Remover área de upload específica e permitir drag & drop em qualquer lugar do canvas. Ao arrastar arquivo, mostrar overlay com mensagem de upload e indicador visual cobrindo toda a tela
+
+# Test Strategy:
+

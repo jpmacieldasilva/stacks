@@ -1,0 +1,31 @@
+# Task ID: 3
+# Title: Board Principal e Sistema de Grid
+# Status: pending
+# Dependencies: 2
+# Priority: high
+# Description: Implementar o board 2D principal com fundo cinza claro e área de trabalho livre
+# Details:
+Criar o canvas principal onde os cards serão posicionados livremente com drag & drop
+
+# Test Strategy:
+Testar navegação pelo board e responsividade em diferentes tamanhos de tela
+
+# Subtasks:
+## 1. Criar componente Board principal [pending]
+### Dependencies: None
+### Description: Área de trabalho 2D com fundo cinza claro e scroll infinito
+### Details:
+
+
+## 2. Implementar sistema de coordenadas [pending]
+### Dependencies: None
+### Description: Sistema para posicionar e rastrear posições dos cards no board
+### Details:
+
+
+## 3. Configurar viewport e zoom [pending]
+### Dependencies: None
+### Description: Sistema de zoom in/out e navegação pelo board
+### Details:
+
+

@@ -1,0 +1,11 @@
+# Task ID: 1
+# Title: Feedback Visual e Sonoro
+# Status: pending
+# Dependencies: None
+# Priority: medium
+# Description: Adicionar feedback visual e sonoro para criação e edição de stickies
+# Details:
+Incluir animações sutis de confirmação quando um sticky é criado ou editado, e opcionalmente sons suaves para indicar sucesso nas ações
+
+# Test Strategy:
+

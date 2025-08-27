@@ -1,0 +1,11 @@
+# Task ID: 9
+# Title: Exportação e Compartilhamento
+# Status: pending
+# Dependencies: None
+# Priority: medium
+# Description: Permitir exportar/compartilhar board inteiro como imagem ou PDF
+# Details:
+Implementar funcionalidade para exportar o board completo ou região selecionada como PNG/JPG/PDF, incluir metadados, e opção de compartilhamento via link ou QR code
+
+# Test Strategy:
+

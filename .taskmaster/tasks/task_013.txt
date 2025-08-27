@@ -1,0 +1,31 @@
+# Task ID: 13
+# Title: Sistema de Persistência e Backend
+# Status: pending
+# Dependencies: 6, 7, 10
+# Priority: medium
+# Description: Implementar sistema de salvamento e persistência dos dados
+# Details:
+API REST para salvar posições, conteúdo e metadados dos cards
+
+# Test Strategy:
+Testar salvamento, carregamento e sincronização dos dados
+
+# Subtasks:
+## 1. Criar estrutura de API [pending]
+### Dependencies: None
+### Description: Endpoints para CRUD de cards e metadados
+### Details:
+
+
+## 2. Implementar sistema de arquivos [pending]
+### Dependencies: None
+### Description: Upload, armazenamento e gerenciamento de arquivos
+### Details:
+
+
+## 3. Criar banco de dados [pending]
+### Dependencies: None
+### Description: Schema para metadados, posições e relacionamentos
+### Details:
+
+
