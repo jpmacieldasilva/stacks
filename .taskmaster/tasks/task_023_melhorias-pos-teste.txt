@@ -1,0 +1,11 @@
+# Task ID: 23
+# Title: Modo de Foco (F11)
+# Status: pending
+# Dependencies: 21
+# Priority: high
+# Description: Implementar modo de foco que esconde painéis para maximizar área de trabalho, com toggle por F11 ou botão dedicado, proporcionando imersão total no conteúdo
+# Details:
+
+
+# Test Strategy:
+

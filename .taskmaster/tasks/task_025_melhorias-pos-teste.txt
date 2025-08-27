@@ -1,0 +1,11 @@
+# Task ID: 25
+# Title: Hierarquia Visual para Telas Grandes
+# Status: pending
+# Dependencies: 24
+# Priority: high
+# Description: Aumentar tamanhos mínimos para 24px para elementos interativos, melhorar contraste e otimizar visualização para resoluções desktop (1920x1080+)
+# Details:
+
+
+# Test Strategy:
+

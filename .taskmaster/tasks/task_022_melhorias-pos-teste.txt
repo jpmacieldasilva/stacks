@@ -1,0 +1,43 @@
+# Task ID: 22
+# Title: Sistema de Atalhos de Teclado Avançado
+# Status: pending
+# Dependencies: 6, 19
+# Priority: high
+# Description: Implementar sistema completo de atalhos para todas as ações: Ctrl+N (novo), Ctrl+D (duplicar), Delete (remover), Ctrl+Z (undo), Ctrl+Y (redo), Ctrl+F (buscar), Ctrl+G (ir para card), F1 (ajuda)
+# Details:
+
+
+# Test Strategy:
+
+
+# Subtasks:
+## 1. Implementar atalhos básicos de criação e edição [pending]
+### Dependencies: None
+### Description: Ctrl+N (novo card), Ctrl+D (duplicar), Delete (remover), Ctrl+Z (undo), Ctrl+Y (redo)
+### Details:
+
+
+## 2. Implementar atalhos de navegação [pending]
+### Dependencies: None
+### Description: Ctrl+F (buscar), Ctrl+G (ir para card), F1 (ajuda), Escape (limpar seleção)
+### Details:
+
+
+## 3. Implementar atalhos de seleção e manipulação [pending]
+### Dependencies: None
+### Description: Ctrl+A (selecionar todos), Shift+click (seleção múltipla), Ctrl+Shift+A (inverter seleção)
+### Details:
+
+
+## 4. Criar overlay de ajuda (F1) [pending]
+### Dependencies: None
+### Description: Implementar painel de ajuda que mostra todos os atalhos disponíveis com busca e categorização
+### Details:
+
+
+## 5. Implementar sistema de atalhos configurável [pending]
+### Dependencies: None
+### Description: Permitir que usuários personalizem atalhos e salvem configurações personalizadas
+### Details:
+
+

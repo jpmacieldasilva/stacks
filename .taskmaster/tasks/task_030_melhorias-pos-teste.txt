@@ -1,0 +1,11 @@
+# Task ID: 30
+# Title: Sistema de Sombras e Elevação
+# Status: pending
+# Dependencies: 26
+# Priority: medium
+# Description: Implementar sistema de sombras com 4 níveis de elevação (0 1px 3px, 0 4px 6px, 0 10px 15px, 0 20px 25px) para criar profundidade sutil e hierarquia visual
+# Details:
+
+
+# Test Strategy:
+

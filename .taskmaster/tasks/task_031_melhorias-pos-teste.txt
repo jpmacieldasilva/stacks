@@ -1,0 +1,11 @@
+# Task ID: 31
+# Title: Sistema de Animações e Micro-interações
+# Status: pending
+# Dependencies: 30
+# Priority: medium
+# Description: Implementar transições suaves (150ms, 300ms, 500ms), easing consistente, micro-interações para hover/selection/drag e feedback visual imediato
+# Details:
+
+
+# Test Strategy:
+

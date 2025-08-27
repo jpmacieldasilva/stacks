@@ -1,0 +1,43 @@
+# Task ID: 24
+# Title: Sistema de Espaçamentos Otimizado para Desktop
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Implementar sistema de espaçamentos baseado em 4px (4, 8, 12, 16, 24) para maximizar área de trabalho, reduzindo espaçamentos generosos atuais e criando interface densa e produtiva
+# Details:
+
+
+# Test Strategy:
+
+
+# Subtasks:
+## 1. Definir sistema de espaçamentos baseado em 4px [pending]
+### Dependencies: None
+### Description: Criar variáveis CSS para espaçamentos: 4px, 8px, 12px, 16px, 20px, 24px, 32px, 40px, 48px, 64px, 80px, 96px
+### Details:
+
+
+## 2. Reduzir espaçamentos generosos atuais [pending]
+### Dependencies: None
+### Description: Aplicar sistema de espaçamentos denso em todos os componentes: header, sidebars, cards, botões
+### Details:
+
+
+## 3. Criar classes utilitárias de espaçamento [pending]
+### Dependencies: None
+### Description: Implementar classes CSS para padding, margin, gap baseadas no sistema de 4px
+### Details:
+
+
+## 4. Otimizar layout para maximizar área de trabalho [pending]
+### Dependencies: None
+### Description: Reduzir margens e padding desnecessários para maximizar espaço disponível para o canvas
+### Details:
+
+
+## 5. Implementar espaçamentos responsivos [pending]
+### Dependencies: None
+### Description: Ajustar espaçamentos baseado no tamanho da tela para otimizar experiência em diferentes resoluções desktop
+### Details:
+
+

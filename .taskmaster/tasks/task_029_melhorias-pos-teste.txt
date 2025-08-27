@@ -1,0 +1,11 @@
+# Task ID: 29
+# Title: Sistema de Tipografia Premium
+# Status: pending
+# Dependencies: 24
+# Priority: medium
+# Description: Implementar sistema tipográfico com escala baseada em 4px, hierarquia clara (caption, body, heading, display), pesos consistentes e alturas de linha otimizadas para desktop
+# Details:
+
+
+# Test Strategy:
+

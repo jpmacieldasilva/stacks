@@ -1,0 +1,11 @@
+# Task ID: 34
+# Title: Sistema de Ícones e Componentes Visuais
+# Status: pending
+# Dependencies: 29
+# Priority: low
+# Description: Implementar sistema de ícones baseado em Lucide React com tamanhos consistentes (12px, 16px, 20px, 24px, 32px, 40px) e componentes visuais padronizados
+# Details:
+
+
+# Test Strategy:
+

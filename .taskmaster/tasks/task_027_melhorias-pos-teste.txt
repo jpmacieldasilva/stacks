@@ -1,0 +1,11 @@
+# Task ID: 27
+# Title: Navegação por Mouse Otimizada
+# Status: pending
+# Dependencies: 21
+# Priority: high
+# Description: Implementar middle-click para pan, Ctrl+scroll para zoom, controles de zoom granulares e navegação por teclado (WASD para pan, setas para navegação entre cards)
+# Details:
+
+
+# Test Strategy:
+

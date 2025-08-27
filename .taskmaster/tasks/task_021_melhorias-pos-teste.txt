@@ -1,0 +1,43 @@
+# Task ID: 21
+# Title: Minimap Otimizado para Desktop
+# Status: pending
+# Dependencies: 14
+# Priority: high
+# Description: Implementar minimap com tamanho 300x200px para resoluções desktop, incluindo navegação por clique, indicador de viewport e controles de zoom integrados
+# Details:
+
+
+# Test Strategy:
+
+
+# Subtasks:
+## 1. Redimensionar minimap de 120x100px para 300x200px [pending]
+### Dependencies: None
+### Description: Alterar constantes no Minimap.tsx para tamanho adequado para desktop
+### Details:
+
+
+## 2. Implementar navegação por clique no minimap [pending]
+### Dependencies: None
+### Description: Adicionar funcionalidade de clique para navegar para posição específica no canvas
+### Details:
+
+
+## 3. Adicionar indicador de viewport claro [pending]
+### Dependencies: None
+### Description: Implementar retângulo azul que mostra área visível atual no minimap
+### Details:
+
+
+## 4. Integrar controles de zoom no minimap [pending]
+### Dependencies: None
+### Description: Adicionar botões de zoom in/out diretamente no minimap para navegação rápida
+### Details:
+
+
+## 5. Otimizar visualização de cards no minimap [pending]
+### Dependencies: None
+### Description: Melhorar representação visual dos cards como pontos coloridos com tooltips informativos
+### Details:
+
+

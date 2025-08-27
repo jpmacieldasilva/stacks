@@ -747,11 +747,331 @@
         "dependencies": [],
         "priority": "low",
         "subtasks": []
+      },
+      {
+        "id": 21,
+        "title": "Minimap Otimizado para Desktop",
+        "description": "Implementar minimap com tamanho 300x200px para resoluções desktop, incluindo navegação por clique, indicador de viewport e controles de zoom integrados",
+        "details": "",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          14
+        ],
+        "priority": "high",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Redimensionar minimap de 120x100px para 300x200px",
+            "description": "Alterar constantes no Minimap.tsx para tamanho adequado para desktop",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 21
+          },
+          {
+            "id": 2,
+            "title": "Implementar navegação por clique no minimap",
+            "description": "Adicionar funcionalidade de clique para navegar para posição específica no canvas",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 21
+          },
+          {
+            "id": 3,
+            "title": "Adicionar indicador de viewport claro",
+            "description": "Implementar retângulo azul que mostra área visível atual no minimap",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 21
+          },
+          {
+            "id": 4,
+            "title": "Integrar controles de zoom no minimap",
+            "description": "Adicionar botões de zoom in/out diretamente no minimap para navegação rápida",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 21
+          },
+          {
+            "id": 5,
+            "title": "Otimizar visualização de cards no minimap",
+            "description": "Melhorar representação visual dos cards como pontos coloridos com tooltips informativos",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 21
+          }
+        ]
+      },
+      {
+        "id": 22,
+        "title": "Sistema de Atalhos de Teclado Avançado",
+        "description": "Implementar sistema completo de atalhos para todas as ações: Ctrl+N (novo), Ctrl+D (duplicar), Delete (remover), Ctrl+Z (undo), Ctrl+Y (redo), Ctrl+F (buscar), Ctrl+G (ir para card), F1 (ajuda)",
+        "details": "",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          6,
+          19
+        ],
+        "priority": "high",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Implementar atalhos básicos de criação e edição",
+            "description": "Ctrl+N (novo card), Ctrl+D (duplicar), Delete (remover), Ctrl+Z (undo), Ctrl+Y (redo)",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 22
+          },
+          {
+            "id": 2,
+            "title": "Implementar atalhos de navegação",
+            "description": "Ctrl+F (buscar), Ctrl+G (ir para card), F1 (ajuda), Escape (limpar seleção)",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 22
+          },
+          {
+            "id": 3,
+            "title": "Implementar atalhos de seleção e manipulação",
+            "description": "Ctrl+A (selecionar todos), Shift+click (seleção múltipla), Ctrl+Shift+A (inverter seleção)",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 22
+          },
+          {
+            "id": 4,
+            "title": "Criar overlay de ajuda (F1)",
+            "description": "Implementar painel de ajuda que mostra todos os atalhos disponíveis com busca e categorização",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 22
+          },
+          {
+            "id": 5,
+            "title": "Implementar sistema de atalhos configurável",
+            "description": "Permitir que usuários personalizem atalhos e salvem configurações personalizadas",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 22
+          }
+        ]
+      },
+      {
+        "id": 23,
+        "title": "Modo de Foco (F11)",
+        "description": "Implementar modo de foco que esconde painéis para maximizar área de trabalho, com toggle por F11 ou botão dedicado, proporcionando imersão total no conteúdo",
+        "details": "",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          21
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 24,
+        "title": "Sistema de Espaçamentos Otimizado para Desktop",
+        "description": "Implementar sistema de espaçamentos baseado em 4px (4, 8, 12, 16, 24) para maximizar área de trabalho, reduzindo espaçamentos generosos atuais e criando interface densa e produtiva",
+        "details": "",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [],
+        "priority": "high",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Definir sistema de espaçamentos baseado em 4px",
+            "description": "Criar variáveis CSS para espaçamentos: 4px, 8px, 12px, 16px, 20px, 24px, 32px, 40px, 48px, 64px, 80px, 96px",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 24
+          },
+          {
+            "id": 2,
+            "title": "Reduzir espaçamentos generosos atuais",
+            "description": "Aplicar sistema de espaçamentos denso em todos os componentes: header, sidebars, cards, botões",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 24
+          },
+          {
+            "id": 3,
+            "title": "Criar classes utilitárias de espaçamento",
+            "description": "Implementar classes CSS para padding, margin, gap baseadas no sistema de 4px",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 24
+          },
+          {
+            "id": 4,
+            "title": "Otimizar layout para maximizar área de trabalho",
+            "description": "Reduzir margens e padding desnecessários para maximizar espaço disponível para o canvas",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 24
+          },
+          {
+            "id": 5,
+            "title": "Implementar espaçamentos responsivos",
+            "description": "Ajustar espaçamentos baseado no tamanho da tela para otimizar experiência em diferentes resoluções desktop",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 24
+          }
+        ]
+      },
+      {
+        "id": 25,
+        "title": "Hierarquia Visual para Telas Grandes",
+        "description": "Aumentar tamanhos mínimos para 24px para elementos interativos, melhorar contraste e otimizar visualização para resoluções desktop (1920x1080+)",
+        "details": "",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          24
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 26,
+        "title": "Paleta de Cores Desktop-Otimizada",
+        "description": "Implementar paleta com melhor contraste e menos saturação, otimizada para monitores desktop, seguindo padrões de Notion e Figma",
+        "details": "",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          24
+        ],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 27,
+        "title": "Navegação por Mouse Otimizada",
+        "description": "Implementar middle-click para pan, Ctrl+scroll para zoom, controles de zoom granulares e navegação por teclado (WASD para pan, setas para navegação entre cards)",
+        "details": "",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          21
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 28,
+        "title": "Precisão de Mouse e Seleção por Área",
+        "description": "Implementar snap-to-grid opcional, seleção retangular de cards, grid visual para orientação e sistema de foco visual para navegação por teclado",
+        "details": "",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          27
+        ],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 29,
+        "title": "Sistema de Tipografia Premium",
+        "description": "Implementar sistema tipográfico com escala baseada em 4px, hierarquia clara (caption, body, heading, display), pesos consistentes e alturas de linha otimizadas para desktop",
+        "details": "",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          24
+        ],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 30,
+        "title": "Sistema de Sombras e Elevação",
+        "description": "Implementar sistema de sombras com 4 níveis de elevação (0 1px 3px, 0 4px 6px, 0 10px 15px, 0 20px 25px) para criar profundidade sutil e hierarquia visual",
+        "details": "",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          26
+        ],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 31,
+        "title": "Sistema de Animações e Micro-interações",
+        "description": "Implementar transições suaves (150ms, 300ms, 500ms), easing consistente, micro-interações para hover/selection/drag e feedback visual imediato",
+        "details": "",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          30
+        ],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 32,
+        "title": "Layout de Ferramentas Otimizado para Desktop",
+        "description": "Redesenhar layout com sidebars redimensionáveis (280px esquerda, 320px direita), header fixo de 64px, maximizar área de canvas e organizar ferramentas por categoria",
+        "details": "",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          21,
+          23
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 33,
+        "title": "Sistema de Feedback Visual e Notificações",
+        "description": "Implementar toast notifications, feedback inline, barras de progresso animadas, indicadores de status claros e sistema de notificações não-intrusivo",
+        "details": "",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          31
+        ],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 34,
+        "title": "Sistema de Ícones e Componentes Visuais",
+        "description": "Implementar sistema de ícones baseado em Lucide React com tamanhos consistentes (12px, 16px, 20px, 24px, 32px, 40px) e componentes visuais padronizados",
+        "details": "",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          29
+        ],
+        "priority": "low",
+        "subtasks": []
       }
     ],
     "metadata": {
       "created": "2025-08-26T19:01:54.200Z",
-      "updated": "2025-08-27T00:10:11.845Z",
+      "updated": "2025-08-27T17:53:04.514Z",
       "description": "Melhorias identificadas após testes de validação funcional"
     }
   }

@@ -1,0 +1,11 @@
+# Task ID: 26
+# Title: Paleta de Cores Desktop-Otimizada
+# Status: pending
+# Dependencies: 24
+# Priority: medium
+# Description: Implementar paleta com melhor contraste e menos saturação, otimizada para monitores desktop, seguindo padrões de Notion e Figma
+# Details:
+
+
+# Test Strategy:
+

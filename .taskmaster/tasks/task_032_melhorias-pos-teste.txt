@@ -1,0 +1,11 @@
+# Task ID: 32
+# Title: Layout de Ferramentas Otimizado para Desktop
+# Status: pending
+# Dependencies: 21, 23
+# Priority: high
+# Description: Redesenhar layout com sidebars redimensionáveis (280px esquerda, 320px direita), header fixo de 64px, maximizar área de canvas e organizar ferramentas por categoria
+# Details:
+
+
+# Test Strategy:
+

@@ -1,0 +1,11 @@
+# Task ID: 28
+# Title: Precisão de Mouse e Seleção por Área
+# Status: pending
+# Dependencies: 27
+# Priority: medium
+# Description: Implementar snap-to-grid opcional, seleção retangular de cards, grid visual para orientação e sistema de foco visual para navegação por teclado
+# Details:
+
+
+# Test Strategy:
+
